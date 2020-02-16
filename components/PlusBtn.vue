@@ -1,5 +1,5 @@
 <template>
-  <v-btn absolute dark fab color="primary" class="plus-btn">
+  <v-btn absolute dark fab color="primary" class="plus-btn" to="/new-note">
     <v-icon>add</v-icon>
   </v-btn>
 </template>
