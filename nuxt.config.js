@@ -32,7 +32,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/scss/styles.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -65,11 +65,15 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      icons: false,
+      font: false
+    },
     theme: {
       light: true,
       themes: {
         light: {
-          primary: colors.blue.darken2,
+          primary: colors.deepPurple.base,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
