@@ -1,5 +1,5 @@
 <template>
-  <div class="v-application--wrap">
+  <div class="v-application--wrap new-note">
     <v-app-bar color="primary" dark fixed>
       <v-btn @click="saveNote" icon>
         <v-icon>check</v-icon>
@@ -101,46 +101,48 @@ export default {
 </script>
 
 <style lang="scss">
-.v-toolbar {
-  flex-grow: 0;
-}
-.v-content {
-  background-color: white;
-  padding: 72px 16px 16px 16px !important;
-}
-.v-content,
-.v-avatar {
-  &.lt-purple {
-    background-color: $lt-purple;
+.new-note {
+  .v-toolbar {
+    flex-grow: 0;
   }
-  &.lt-yellow {
-    background-color: $lt-yellow;
+  .v-content {
+    background-color: white;
+    padding: 72px 16px 16px 16px !important;
   }
-  &.lt-green {
-    background-color: $lt-green;
+  .v-content,
+  .v-avatar {
+    &.lt-purple {
+      background-color: $lt-purple;
+    }
+    &.lt-yellow {
+      background-color: $lt-yellow;
+    }
+    &.lt-green {
+      background-color: $lt-green;
+    }
+    &.lt-brown {
+      background-color: $lt-brown;
+    }
+    &.lt-red {
+      background-color: $lt-red;
+    }
+    &.lt-blue {
+      background-color: $lt-blue;
+    }
   }
-  &.lt-brown {
-    background-color: $lt-brown;
+  .v-avatar {
+    border: 1px solid black;
   }
-  &.lt-red {
-    background-color: $lt-red;
-  }
-  &.lt-blue {
-    background-color: $lt-blue;
-  }
-}
-.v-avatar {
-  border: 1px solid black;
-}
-#text-editor {
-  height: 100%;
+  #text-editor {
+    height: 100%;
 
-  &:focus {
-    outline: none;
-  }
-  img {
-    display: block;
-    max-width: 100%;
+    &:focus {
+      outline: none;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 }
 </style>
