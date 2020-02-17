@@ -1,26 +1,104 @@
 <template>
   <div class="v-application--wrap">
-    <v-toolbar color="primary" dark>
-      <v-btn icon>
+    <v-app-bar color="primary" dark fixed>
+      <v-btn @click="saveNote" icon>
         <v-icon>check</v-icon>
       </v-btn>
       <v-toolbar-title>
         New Note
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>attach_file</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>color_lens</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <v-content>
-      New note
+      <input id="attach" type="file" name="attach" class="d-none" />
+
+      <v-menu transition="scale-transition" left>
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>attach_file</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-subheader>Attach a file</v-subheader>
+          <v-list-item @click="attachImage">
+            <v-list-item-icon class="mr-2">
+              <v-icon>image</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Image</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
+      <v-menu transition="scale-transition" left>
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>color_lens</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-subheader>COLORS</v-subheader>
+          <v-list-item
+            @click="color = c"
+            v-for="(c, index) in colors"
+            :key="index"
+          >
+            <v-list-item-avatar
+              :class="'lt-' + c"
+              class="mr-2"
+            ></v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ c }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-content :class="'lt-' + color">
+      <div id="text-editor"></div>
     </v-content>
   </div>
 </template>
+
+<script>
+import Squire from '@superhuman/squire-rte'
+
+export default {
+  data() {
+    return {
+      editor: null,
+      color: 'white',
+      colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown']
+    }
+  },
+  mounted() {
+    this.editor = new Squire(document.getElementById('text-editor'))
+    document.getElementById('attach').addEventListener('change', () => {
+      const files = document.getElementById('attach').files
+      if (files.length === 0) return
+      if (files[0].type.indexOf('image/') === 0) this.openImage(files[0])
+    })
+  },
+  methods: {
+    attachImage() {
+      document.getElementById('attach').click()
+    },
+    openImage(file) {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => {
+        const result = reader.result
+        this.editor.insertHTML(`<img src="${result}" />`)
+      }
+    },
+    saveNote() {
+      console.log(this.editor.getHTML())
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .v-toolbar {
@@ -28,5 +106,41 @@
 }
 .v-content {
   background-color: white;
+  padding: 72px 16px 16px 16px !important;
+}
+.v-content,
+.v-avatar {
+  &.lt-purple {
+    background-color: $lt-purple;
+  }
+  &.lt-yellow {
+    background-color: $lt-yellow;
+  }
+  &.lt-green {
+    background-color: $lt-green;
+  }
+  &.lt-brown {
+    background-color: $lt-brown;
+  }
+  &.lt-red {
+    background-color: $lt-red;
+  }
+  &.lt-blue {
+    background-color: $lt-blue;
+  }
+}
+.v-avatar {
+  border: 1px solid black;
+}
+#text-editor {
+  height: 100%;
+
+  &:focus {
+    outline: none;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
 }
 </style>
