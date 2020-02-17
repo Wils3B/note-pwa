@@ -94,7 +94,7 @@ export default {
       }
     },
     saveNote() {
-      console.log(this.editor.getHTML())
+      this.$router.go(-1)
     }
   }
 }
