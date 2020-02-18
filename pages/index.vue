@@ -5,7 +5,7 @@
         Note App
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon to="/search">
         <v-icon>search</v-icon>
       </v-btn>
 
