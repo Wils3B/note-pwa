@@ -15,7 +15,8 @@
     </v-app-bar>
 
     <v-content>
-      App.
+      <app-note-list :notes="notes" />
+
       <app-plus-btn />
     </v-content>
   </div>
@@ -35,10 +36,17 @@
 
 <script>
 import AppPlusBtn from '~/components/PlusBtn.vue'
+import AppNoteList from '~/components/NotesList.vue'
 
 export default {
   components: {
-    AppPlusBtn
+    AppPlusBtn,
+    AppNoteList
+  },
+  computed: {
+    notes() {
+      return this.$store.state.notes.notes
+    }
   }
 }
 </script>
