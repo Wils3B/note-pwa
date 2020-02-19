@@ -108,9 +108,7 @@ export default {
   .v-content {
     background-color: white;
     padding: 72px 16px 16px 16px !important;
-  }
-  .v-content,
-  .v-avatar {
+
     &.lt-purple {
       background-color: $lt-purple;
     }
@@ -143,6 +141,28 @@ export default {
       display: block;
       max-width: 100%;
     }
+  }
+}
+.v-avatar {
+  border: 1px solid $lt-purple;
+
+  &.lt-purple {
+    background-color: $lt-purple;
+  }
+  &.lt-yellow {
+    background-color: $lt-yellow;
+  }
+  &.lt-green {
+    background-color: $lt-green;
+  }
+  &.lt-brown {
+    background-color: $lt-brown;
+  }
+  &.lt-red {
+    background-color: $lt-red;
+  }
+  &.lt-blue {
+    background-color: $lt-blue;
   }
 }
 </style>
