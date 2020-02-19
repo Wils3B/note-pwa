@@ -11,7 +11,7 @@
 
       <input id="attach" type="file" name="attach" class="d-none" />
 
-      <v-menu transition="scale-transition" left>
+      <v-menu transition="scale-transition" left offset-x>
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" icon>
             <v-icon>attach_file</v-icon>
@@ -30,7 +30,7 @@
         </v-list>
       </v-menu>
 
-      <v-menu transition="scale-transition" left>
+      <v-menu transition="scale-transition" left offset-x>
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" icon>
             <v-icon>color_lens</v-icon>
