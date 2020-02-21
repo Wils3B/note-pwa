@@ -64,6 +64,7 @@
 
 <script>
 import Squire from '@superhuman/squire-rte'
+import Note from '~/model/note'
 
 export default {
   data() {
@@ -94,6 +95,9 @@ export default {
       }
     },
     saveNote() {
+      const note = new Note(this.editor.getHTML())
+      this.$store.commit('notes/saveNote', note)
+      window.note = note
       this.$router.go(-1)
     }
   }
