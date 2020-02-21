@@ -16,7 +16,6 @@
 
     <v-content>
       <app-note-list :notes="notes" />
-      <app-note-list :notes="notes" />
 
       <app-plus-btn />
     </v-content>
