@@ -16,6 +16,7 @@
 
     <v-content>
       <app-note-list :notes="notes" />
+      <app-note-list :notes="notes" />
 
       <app-plus-btn />
     </v-content>
@@ -29,7 +30,7 @@
   }
   .v-content {
     background-color: $light-grey;
-    padding: 72px 16px 0px 16px !important;
+    padding: 64px 16px 0px 16px !important;
   }
 }
 </style>
