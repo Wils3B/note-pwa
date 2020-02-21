@@ -1,5 +1,5 @@
 <template>
-  <v-btn absolute dark fab color="primary" class="plus-btn" to="/new-note">
+  <v-btn fixed dark fab color="primary" class="plus-btn" to="/new-note">
     <v-icon>add</v-icon>
   </v-btn>
 </template>
@@ -7,6 +7,6 @@
 <style scoped>
 .plus-btn {
   bottom: 16px;
-  right: 0px;
+  right: 16px;
 }
 </style>
