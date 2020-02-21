@@ -1,6 +1,12 @@
 <template>
   <v-row>
-    <v-col v-for="(n, index) in notes" :key="index" cols="6" lg="2">
+    <v-col
+      v-for="(n, index) in notes"
+      :key="index"
+      cols="6"
+      lg="2"
+      class="note-wrapper"
+    >
       <app-note-card :note="n" />
     </v-col>
   </v-row>
@@ -21,3 +27,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.note-wrapper {
+  padding: 8px;
+}
+</style>
