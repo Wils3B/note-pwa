@@ -9,7 +9,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn :to="`/edit-note/${note.id}`" icon>
         <v-icon>edit</v-icon>
       </v-btn>
 
