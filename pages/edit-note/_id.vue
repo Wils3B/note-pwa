@@ -5,7 +5,7 @@
         <v-icon>check</v-icon>
       </v-btn>
       <v-toolbar-title>
-        New Note
+        {{ title }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
@@ -71,7 +71,9 @@ export default {
     return {
       editor: null,
       color: 'white',
-      colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown']
+      colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown'],
+      title: '',
+      noteId: 'new'
     }
   },
   mounted() {
@@ -81,6 +83,17 @@ export default {
       if (files.length === 0) return
       if (files[0].type.indexOf('image/') === 0) this.openImage(files[0])
     })
+
+    this.noteId = this.$route.params.id || 'new'
+    if (this.noteId === 'new') {
+      this.title = 'New Note'
+    } else {
+      this.title = 'Edit Note'
+      this.editor.setHTML(
+        this.$store.getters['notes/noteById'](Number(this.$route.params.id))[0]
+          .content
+      )
+    }
   },
   methods: {
     attachImage() {
@@ -97,7 +110,8 @@ export default {
     saveNote() {
       const note = new Note(this.editor.getHTML())
       note.color = this.color
-      this.$store.commit('notes/saveNote', note)
+      if (this.noteId === 'new') this.$store.commit('notes/saveNote', note)
+      else this.$store.commit('notes/editNote', this.noteId, note)
       this.$router.go(-1)
     }
   }
