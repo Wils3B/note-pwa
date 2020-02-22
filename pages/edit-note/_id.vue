@@ -4,9 +4,7 @@
       <v-btn @click="saveNote" icon>
         <v-icon>check</v-icon>
       </v-btn>
-      <v-toolbar-title>
-        {{ title }}
-      </v-toolbar-title>
+      <v-toolbar-title> {{ note ? 'Edit' : 'New' }} Note </v-toolbar-title>
       <v-spacer></v-spacer>
 
       <input id="attach" type="file" name="attach" class="d-none" />
@@ -57,7 +55,7 @@
       </v-menu>
     </v-app-bar>
     <v-content :class="'lt-' + color">
-      <div id="text-editor"></div>
+      <div id="text-editor" autofocus></div>
     </v-content>
   </div>
 </template>
@@ -72,8 +70,7 @@ export default {
       editor: null,
       color: 'white',
       colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown'],
-      title: '',
-      noteId: 'new'
+      note: null
     }
   },
   mounted() {
@@ -84,15 +81,12 @@ export default {
       if (files[0].type.indexOf('image/') === 0) this.openImage(files[0])
     })
 
-    this.noteId = this.$route.params.id || 'new'
-    if (this.noteId === 'new') {
-      this.title = 'New Note'
-    } else {
-      this.title = 'Edit Note'
-      this.editor.setHTML(
-        this.$store.getters['notes/noteById'](Number(this.$route.params.id))[0]
-          .content
+    const noteId = this.$route.params.id || 'new'
+    if (noteId !== 'new') {
+      this.note = this.$store.getters['notes/noteById'](
+        Number(this.$route.params.id)
       )
+      this.editor.setHTML(this.note.content)
     }
   },
   methods: {
@@ -108,10 +102,18 @@ export default {
       }
     },
     saveNote() {
-      const note = new Note(this.editor.getHTML())
-      note.color = this.color
-      if (this.noteId === 'new') this.$store.commit('notes/saveNote', note)
-      else this.$store.commit('notes/editNote', this.noteId, note)
+      if (this.note) {
+        const noteEdit = {
+          id: this.note.id,
+          color: this.color,
+          content: this.editor.getHTML()
+        }
+        this.$store.commit('notes/editNote', noteEdit)
+      } else {
+        const note = new Note(this.editor.getHTML())
+        note.color = this.color
+        this.$store.commit('notes/saveNote', note)
+      }
       this.$router.go(-1)
     }
   }
