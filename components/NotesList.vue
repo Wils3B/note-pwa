@@ -4,6 +4,8 @@
       v-for="(n, index) in notes"
       :key="index"
       cols="6"
+      sm="4"
+      md="3"
       lg="2"
       class="note-wrapper"
     >
