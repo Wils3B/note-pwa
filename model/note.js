@@ -8,7 +8,7 @@ export default class Note {
     this.id = new Date().getTime()
   }
 
-  hasImage() {
+  get hasImage() {
     return /<img src=".+">/.test(this.content)
   }
 
