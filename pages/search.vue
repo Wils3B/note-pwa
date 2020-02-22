@@ -6,22 +6,20 @@
       </v-btn>
 
       <v-text-field
+        @change="onChange"
         hide-details
-        prepend-icon="search"
+        prepend-inner-icon="search"
         single-line
         autofocus
         clearable
         type="search"
         placeholder="Search here"
-      ></v-text-field>
-
-      <v-btn icon>
-        <v-icon>clear</v-icon>
-      </v-btn>
+        clear-icon="clear"
+      />
     </v-app-bar>
 
     <v-content>
-      App search page.
+      {{ text }}
       <app-plus-btn />
     </v-content>
   </div>
@@ -45,6 +43,16 @@ import AppPlusBtn from '~/components/PlusBtn.vue'
 export default {
   components: {
     AppPlusBtn
+  },
+  data() {
+    return {
+      text: 'App search page'
+    }
+  },
+  methods: {
+    onChange(event) {
+      this.text = event
+    }
   }
 }
 </script>
