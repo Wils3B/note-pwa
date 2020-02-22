@@ -18,7 +18,7 @@
       </v-btn>
     </v-app-bar>
     <v-content>
-      <div v-html="note.content"></div>
+      <div id="text-note" v-html="note.content"></div>
     </v-content>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
   mounted() {
     this.note = this.$store.getters['notes/noteById'](
       Number(this.$route.params.id)
-    )[0]
+    )
   },
   methods: {
     onDelete() {
@@ -68,6 +68,17 @@ export default {
   .v-content {
     background-color: $light-grey;
     padding: 72px 16px 0px 16px !important;
+  }
+  #text-note {
+    height: 100%;
+
+    &:focus {
+      outline: none;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 }
 </style>
