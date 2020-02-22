@@ -5,7 +5,7 @@
     class="note-card"
   >
     <v-img
-      v-if="note.hasImage()"
+      v-if="note && note.hasImage"
       :src="note.getFirstImage()"
       height="100px"
     ></v-img>
@@ -23,11 +23,15 @@
 </template>
 
 <script>
+import Note from '~/model/note'
+
 export default {
   props: {
     note: {
       type: Object,
-      default: () => ({})
+      default() {
+        return new Note('new note')
+      }
     }
   },
   computed: {
@@ -35,9 +39,9 @@ export default {
       const el = document.createElement('div')
       el.innerHTML = this.note.content
       const str = el.textContent
-      if (this.note.hasImage() && str.length > 22)
+      if (this.note.hasImage && str.length > 22)
         return `${str.slice(0, 18)} ...`
-      else if (!this.note.hasImage() && str.length > 100)
+      else if (!this.note.hasImage && str.length > 100)
         return `${str.slice(0, 97)} ...`
       return str
     },
