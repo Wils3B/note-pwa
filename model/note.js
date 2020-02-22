@@ -5,6 +5,7 @@ export default class Note {
     this.content = content
     this.voices = []
     this.color = 'white'
+    this.id = new Date().getTime()
   }
 
   hasImage() {
