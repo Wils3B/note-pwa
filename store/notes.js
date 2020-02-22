@@ -12,12 +12,20 @@ export const mutations = {
     const note = currentState.notes.filter((note) => note.id === id)[0]
     const index = currentState.notes.indexOf(note)
     currentState.notes.splice(index, 1)
+  },
+  editNote(currentState, note) {
+    const index = currentState.notes.indexOf(
+      getters.noteById(currentState)(note.id)
+    )
+    const currentNote = currentState.notes[index]
+    currentNote.color = note.color
+    currentNote.content = note.content
   }
 }
 
 export const getters = {
   noteById(currentState) {
     window.notes = currentState.notes
-    return (id) => currentState.notes.filter((note) => note.id === id)
+    return (id) => currentState.notes.filter((note) => note.id === id)[0]
   }
 }
