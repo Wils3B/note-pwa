@@ -13,7 +13,7 @@
         <v-icon>edit</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn @click="onDelete" icon>
         <v-icon>delete</v-icon>
       </v-btn>
     </v-app-bar>
@@ -50,6 +50,12 @@ export default {
     this.note = this.$store.getters['notes/noteById'](
       Number(this.$route.params.id)
     )[0]
+  },
+  methods: {
+    onDelete() {
+      this.$router.push('/')
+      this.$store.commit('notes/deleteNote', this.note.id)
+    }
   }
 }
 </script>
