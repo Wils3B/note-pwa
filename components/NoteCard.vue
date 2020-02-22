@@ -1,8 +1,12 @@
 <template>
-  <v-card :class="'lt-' + note.color" class="note-card">
+  <v-card
+    :class="'lt-' + note.color"
+    :to="`/note-detail/${note.id}`"
+    class="note-card"
+  >
     <v-img
       v-if="note.hasImage()"
-      :lazy-src="note.getFirstImage()"
+      :src="note.getFirstImage()"
       height="100px"
     ></v-img>
     <v-card-text class="main-text">
