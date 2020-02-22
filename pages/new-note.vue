@@ -96,8 +96,8 @@ export default {
     },
     saveNote() {
       const note = new Note(this.editor.getHTML())
+      note.color = this.color
       this.$store.commit('notes/saveNote', note)
-      window.note = note
       this.$router.go(-1)
     }
   }
