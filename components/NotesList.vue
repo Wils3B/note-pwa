@@ -1,8 +1,8 @@
 <template>
-  <v-row>
+  <v-row class="note-list">
     <v-col
-      v-for="(n, index) in notes"
-      :key="index"
+      v-for="n in notes"
+      :key="n.id"
       cols="6"
       sm="4"
       md="3"
@@ -30,8 +30,13 @@ export default {
 }
 </script>
 
-<style scoped>
-.note-wrapper {
-  padding: 8px;
+<style lang="scss">
+.note-list {
+  margin-left: -8px;
+  margin-right: -8px;
+
+  .note-wrapper {
+    padding: 8px;
+  }
 }
 </style>
