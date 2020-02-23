@@ -1,8 +1,8 @@
 {
-  "name": "VueNoteApp",
-  "short_name": "VueNoteApp",
-  "theme_color": "#36495d",
-  "background_color": "#2196f3",
+  "name": "NoteApp",
+  "short_name": "NoteApp",
+  "theme_color": "#673ab7",
+  "background_color": "#f0f0f0",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
