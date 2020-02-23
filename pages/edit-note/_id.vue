@@ -106,16 +106,14 @@ export default {
       }
     },
     saveNote() {
+      const note = new Note(this.editor.getHTML())
+      note.color = this.color
       if (this.note) {
-        const noteEdit = {
-          id: this.note.id,
-          color: this.color,
-          content: this.editor.getHTML()
-        }
-        this.$store.commit('notes/editNote', noteEdit)
-      } else {
-        const note = new Note(this.editor.getHTML())
-        note.color = this.color
+        note.id = this.note.id
+        if (note.textContent.trim() !== '')
+          this.$store.commit('notes/editNote', note)
+        else this.$store.commit('notes/deleteNote', note.id)
+      } else if (note.textContent.trim() !== '') {
         this.$store.commit('notes/saveNote', note)
       }
       this.$router.go(-1)
