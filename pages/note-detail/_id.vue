@@ -47,9 +47,11 @@ export default {
     }
   },
   mounted() {
-    this.note = this.$store.getters['notes/noteById'](
+    const note = this.$store.getters['notes/noteById'](
       Number(this.$route.params.id)
     )
+    if (note) this.note = note
+    else this.$router.push('/')
   },
   methods: {
     onDelete() {
