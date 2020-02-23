@@ -21,7 +21,7 @@
               <v-list-item-title>Sort by date</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item @click="sortByDate">
+          <v-list-item @click="sortByColor">
             <v-list-item-content>
               <v-list-item-title>Sort by color</v-list-item-title>
             </v-list-item-content>
@@ -31,7 +31,8 @@
     </v-app-bar>
 
     <v-content>
-      <app-note-list :notes="notes" />
+      <app-note-list v-if="sortType === 'date'" :notes="notes" />
+      <app-note-list-color v-else :notes="notes" />
 
       <app-plus-btn />
     </v-content>
@@ -52,21 +53,30 @@
 
 <script>
 import AppPlusBtn from '~/components/PlusBtn.vue'
-import AppNoteList from '~/components/NotesListColor.vue'
+import AppNoteList from '~/components/NotesList.vue'
+import AppNoteListColor from '~/components/NotesListColor.vue'
 
 export default {
   components: {
     AppPlusBtn,
-    AppNoteList
+    AppNoteList,
+    AppNoteListColor
   },
   computed: {
     notes() {
       return this.$store.state.notes.notes
+    },
+    sortType() {
+      return this.$store.state.settings.sortType
     }
   },
   methods: {
-    sortByDate() {},
-    sortByColor() {}
+    sortByDate() {
+      this.$store.commit('settings/changeSortType', 'date')
+    },
+    sortByColor() {
+      this.$store.commit('settings/changeSortType', 'color')
+    }
   }
 }
 </script>
