@@ -19,7 +19,9 @@ export const mutations = {
     )
     const currentNote = currentState.notes[index]
     currentNote.color = note.color
-    currentNote.content = note.content
+    currentNote.setContent(note.content)
+    currentState.notes.splice(index, 1)
+    currentState.notes.push(currentNote)
   }
 }
 
