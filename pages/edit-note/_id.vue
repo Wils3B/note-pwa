@@ -69,8 +69,12 @@ export default {
     return {
       editor: null,
       color: 'white',
-      colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown'],
       note: null
+    }
+  },
+  computed: {
+    colors() {
+      return this.$store.state.colors
     }
   },
   mounted() {
