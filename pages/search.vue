@@ -7,6 +7,7 @@
 
       <v-text-field
         @change="onChange"
+        @input="onInput"
         hide-details
         prepend-inner-icon="search"
         single-line
@@ -19,7 +20,13 @@
     </v-app-bar>
 
     <v-content>
-      {{ text }}
+      <div v-show="results.length === 0" class="no-results">
+        No resulsts
+      </div>
+      <div v-show="results.length !== 0">
+        <h3>Search results ({{ results.length }})</h3>
+        <app-notes-list :notes="results" />
+      </div>
       <app-plus-btn />
     </v-content>
   </div>
@@ -34,24 +41,45 @@
     background-color: $light-grey;
     padding: 72px 16px 0px 16px !important;
   }
+  .no-results {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
 
 <script>
 import AppPlusBtn from '~/components/PlusBtn.vue'
+import AppNotesList from '~/components/NotesList.vue'
 
 export default {
   components: {
-    AppPlusBtn
+    AppPlusBtn,
+    AppNotesList
   },
   data() {
     return {
-      text: 'App search page'
+      results: []
+    }
+  },
+  computed: {
+    notes() {
+      return this.$store.state.notes.notes
     }
   },
   methods: {
     onChange(event) {
       this.text = event
+    },
+    onInput(event) {
+      this.results = []
+      if (event === '') return
+      for (let i = 0, c = this.notes.length; i < c; i++) {
+        if (this.notes[i].content.search(event) >= 0)
+          this.results.push(this.notes[i])
+      }
     }
   }
 }
