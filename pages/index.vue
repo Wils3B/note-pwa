@@ -9,9 +9,25 @@
         <v-icon>search</v-icon>
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>sort</v-icon>
-      </v-btn>
+      <v-menu transition="scale-transition" left offset-x>
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>sort</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item @click="sortByDate">
+            <v-list-item-content>
+              <v-list-item-title>Sort by date</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item @click="sortByDate">
+            <v-list-item-content>
+              <v-list-item-title>Sort by color</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
@@ -36,7 +52,7 @@
 
 <script>
 import AppPlusBtn from '~/components/PlusBtn.vue'
-import AppNoteList from '~/components/NotesList.vue'
+import AppNoteList from '~/components/NotesListColor.vue'
 
 export default {
   components: {
@@ -47,6 +63,10 @@ export default {
     notes() {
       return this.$store.state.notes.notes
     }
+  },
+  methods: {
+    sortByDate() {},
+    sortByColor() {}
   }
 }
 </script>
