@@ -36,9 +36,7 @@ export default {
   },
   computed: {
     noteText() {
-      const el = document.createElement('div')
-      el.innerHTML = this.note.content
-      const str = el.textContent
+      const str = this.note.textContent
       if (this.note.hasImage && str.length > 22)
         return `${str.slice(0, 18)} ...`
       else if (!this.note.hasImage && str.length > 100)

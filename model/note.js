@@ -29,6 +29,14 @@ export default class Note {
     this.content = content
   }
 
+  get textContent() {
+    const el = document.createElement('p')
+    let copy = this.content
+    while (copy.search('<br>') >= 0) copy = copy.replace('<br>', ' ')
+    el.innerHTML = copy
+    return el.textContent
+  }
+
   updateModified() {
     this.modifiedAt = new Date().toISOString()
   }
