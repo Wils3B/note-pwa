@@ -82,6 +82,7 @@ dist
 
 # Service worker
 sw.*
+workbox-v4.3.1
 
 # Mac OSX
 .DS_Store
