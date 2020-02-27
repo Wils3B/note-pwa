@@ -50,4 +50,15 @@ export default class Note {
     this.updateModified()
     this.voices.splice(this.voices.indexOf(voice), 1)
   }
+
+  static fromJSON(json) {
+    const noteObj = JSON.parse(json)
+    const note = new Note(noteObj.content)
+    note.createdAt = noteObj.createdAt
+    note.modifiedAt = noteObj.modifiedAt
+    note.id = noteObj.id
+    note.color = noteObj.color
+    note.voice = noteObj.voices
+    return note
+  }
 }
