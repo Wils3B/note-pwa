@@ -39,8 +39,8 @@ export default {
       const str = this.note.textContent
       if (this.note.hasImage && str.length > 22)
         return `${str.slice(0, 18)} ...`
-      else if (!this.note.hasImage && str.length > 100)
-        return `${str.slice(0, 97)} ...`
+      else if (!this.note.hasImage && str.length > 95)
+        return `${str.slice(0, 92)} ...`
       return str
     },
     modifiedDate() {
