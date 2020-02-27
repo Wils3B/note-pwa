@@ -10,11 +10,11 @@
 .page-enter-active,
 .page-leave-active {
   transition: transform 0.4s;
-  transform-origin: bottom right;
+  transform-origin: top right;
 }
 .page-enter,
 .page-leave-active {
-  transform: translateX(-100%);
+  transform: rotateZ(90deg) scale(0.1);
 }
 
 #app {
