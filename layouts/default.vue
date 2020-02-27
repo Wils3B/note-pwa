@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <nuxt />
   </v-app>
 </template>
@@ -15,5 +15,12 @@
 .page-enter,
 .page-leave-active {
   transform: translateX(-100%);
+}
+
+#app {
+  background-color: #673ab7;
+  background-image: url('/images/icons/icon-144x144.png');
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 </style>
