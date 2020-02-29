@@ -89,3 +89,6 @@ workbox-v4.3.1
 
 # Vim swap files
 *.swp
+
+# Firebase cahe
+.firebase
