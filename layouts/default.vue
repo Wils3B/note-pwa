@@ -9,7 +9,7 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: transform 0.4s;
+  transition: transform 0.5s;
   transform-origin: top right;
 }
 .page-enter,
