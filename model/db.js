@@ -41,7 +41,6 @@ export class DB {
     results.forEach((r) => {
       if (r) passed += 1
     })
-    transaction.close()
     return {
       passed,
       failed: notes.length - passed,
@@ -61,7 +60,6 @@ export class DB {
     results.forEach((r) => {
       if (r) passed += 1
     })
-    transaction.close()
     return {
       passed,
       failed: notes.length - passed,
@@ -107,6 +105,35 @@ export class DB {
         error: event
       })
     }
+
+    return promise
+  }
+
+  async deleteNotes(...ids) {
+    const transaction = this.db.transaction('notes', 'readwrite')
+    const notesStore = transaction.objectStore('notes')
+    let passed = 0
+    const results = await Promise.all(
+      ids.map((id) => {
+        return this.deleteSingleNote(id, notesStore)
+      })
+    )
+    results.forEach((r) => {
+      if (r) passed += 1
+    })
+    return {
+      passed,
+      failed: ids.length - passed,
+      isFailed: passed === 0
+    }
+  }
+
+  deleteSingleNote(id, store) {
+    const { promise, ok } = this.createPrommise()
+
+    const request = store.delete(id)
+    request.onsuccess = () => ok(true)
+    request.onerror = (event) => ok(false)
 
     return promise
   }
