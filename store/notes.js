@@ -1,4 +1,5 @@
 import Note from '~/model/note'
+import DB from '~/model/db'
 
 export const state = () => {
   const notes = []
@@ -43,10 +44,9 @@ export const getters = {
 
 export const actions = {
   async fetchAllNotes(context) {
-    const db = context.rootState.db
-    if (!db.connected) await db.connect
+    if (!DB.connected) await DB.connect()
     let notes
-    if (db.connected) notes = await db.getAllNotes()
+    if (DB.connected) notes = await DB.getAllNotes()
     context.commit(
       'setAllNotes',
       notes.data.map((note) => Note.fromRAW(note))
