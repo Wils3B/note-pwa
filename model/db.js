@@ -41,6 +41,27 @@ export default class DB {
     results.forEach((r) => {
       if (r) passed += 1
     })
+    transaction.close()
+    return {
+      passed,
+      failed: notes.length - passed,
+      isFailed: passed === 0
+    }
+  }
+
+  async putNotes(...notes) {
+    const transaction = this.db.transaction('notes', 'readwrite')
+    const notesStore = transaction.objectStore('notes')
+    let passed = 0
+    const results = await Promise.all(
+      notes.map((note) => {
+        return this.addSingleNote(note, notesStore)
+      })
+    )
+    results.forEach((r) => {
+      if (r) passed += 1
+    })
+    transaction.close()
     return {
       passed,
       failed: notes.length - passed,
@@ -54,6 +75,38 @@ export default class DB {
     const request = store.add(note)
     request.onsuccess = () => ok(true)
     request.onerror = (event) => ok(false)
+
+    return promise
+  }
+
+  putSingleNote(note, store) {
+    const { promise, ok } = this.createPrommise()
+
+    const request = store.put(note)
+    request.onsuccess = () => ok(true)
+    request.onerror = (event) => ok(false)
+
+    return promise
+  }
+
+  getAllNotes() {
+    const transaction = this.db.transaction('notes')
+    const notesStore = transaction.objectStore('notes')
+    const { promise, ok } = this.createPrommise()
+    const request = notesStore.getAll()
+
+    request.onsuccess = () => {
+      ok({
+        isError: false,
+        data: request.result
+      })
+    }
+    request.onerror = (event) => {
+      ok({
+        isError: true,
+        error: event
+      })
+    }
 
     return promise
   }
