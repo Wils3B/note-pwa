@@ -2,12 +2,6 @@ import Note from '~/model/note'
 
 export const state = () => {
   const notes = []
-  for (let i = 0; i < localStorage.length; i += 1) {
-    const key = localStorage.key(i)
-    if (/^note-\d{1,}$/.test(key)) {
-      notes.push(Note.fromJSON(localStorage.getItem(key)))
-    }
-  }
   return {
     notes
   }
@@ -34,6 +28,9 @@ export const mutations = {
     currentState.notes.splice(index, 1)
     currentState.notes.push(currentNote)
     localStorage.setItem(`note-${currentNote.id}`, JSON.stringify(currentNote))
+  },
+  setAllNotes(currentState, notes) {
+    currentState.notes = notes
   }
 }
 
@@ -41,5 +38,18 @@ export const getters = {
   noteById(currentState) {
     window.notes = currentState.notes
     return (id) => currentState.notes.filter((note) => note.id === id)[0]
+  }
+}
+
+export const actions = {
+  async fetchAllNotes(context) {
+    const db = context.rootState.db
+    if (!db.connected) await db.connect
+    let notes
+    if (db.connected) notes = await db.getAllNotes()
+    context.commit(
+      'setAllNotes',
+      notes.data.map((note) => Note.fromRAW(note))
+    )
   }
 }
