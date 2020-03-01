@@ -11,13 +11,13 @@ export const state = () => {
 export const mutations = {
   saveNote(currentState, note) {
     currentState.notes.push(note)
-    localStorage.setItem(`note-${note.id}`, JSON.stringify(note))
+    DB.addNotes(note)
   },
   deleteNote(currentState, id) {
     const note = currentState.notes.filter((note) => note.id === id)[0]
     const index = currentState.notes.indexOf(note)
     currentState.notes.splice(index, 1)
-    localStorage.removeItem(`note-${id}`)
+    DB.deleteNotes(id)
   },
   editNote(currentState, note) {
     const index = currentState.notes.indexOf(
@@ -28,7 +28,7 @@ export const mutations = {
     currentNote.setContent(note.content)
     currentState.notes.splice(index, 1)
     currentState.notes.push(currentNote)
-    localStorage.setItem(`note-${currentNote.id}`, JSON.stringify(currentNote))
+    DB.putNotes(note)
   },
   setAllNotes(currentState, notes) {
     currentState.notes = notes
