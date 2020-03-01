@@ -30,6 +30,7 @@ export class DB {
   }
 
   async addNotes(...notes) {
+    this.preventConnection()
     const transaction = this.db.transaction('notes', 'readwrite')
     const notesStore = transaction.objectStore('notes')
     let passed = 0
@@ -49,12 +50,13 @@ export class DB {
   }
 
   async putNotes(...notes) {
+    this.preventConnection()
     const transaction = this.db.transaction('notes', 'readwrite')
     const notesStore = transaction.objectStore('notes')
     let passed = 0
     const results = await Promise.all(
       notes.map((note) => {
-        return this.addSingleNote(note, notesStore)
+        return this.putSingleNote(note, notesStore)
       })
     )
     results.forEach((r) => {
@@ -88,6 +90,7 @@ export class DB {
   }
 
   getAllNotes() {
+    this.preventConnection()
     const transaction = this.db.transaction('notes')
     const notesStore = transaction.objectStore('notes')
     const { promise, ok } = this.createPrommise()
@@ -110,6 +113,7 @@ export class DB {
   }
 
   async deleteNotes(...ids) {
+    this.preventConnection()
     const transaction = this.db.transaction('notes', 'readwrite')
     const notesStore = transaction.objectStore('notes')
     let passed = 0
@@ -146,6 +150,10 @@ export class DB {
     })
 
     return { promise, ok, no }
+  }
+
+  async preventConnection() {
+    if (!this.connected) await this.connect()
   }
 }
 
