@@ -52,13 +52,16 @@ export default class Note {
   }
 
   static fromJSON(json) {
-    const noteObj = JSON.parse(json)
-    const note = new Note(noteObj.content)
-    note.createdAt = noteObj.createdAt
-    note.modifiedAt = noteObj.modifiedAt
-    note.id = noteObj.id
-    note.color = noteObj.color
-    note.voice = noteObj.voices
+    return this.fromRAW(JSON.parse(json))
+  }
+
+  static fromRAW(obj) {
+    const note = new Note(obj.content)
+    note.createdAt = obj.createdAt
+    note.modifiedAt = obj.modifiedAt
+    note.id = obj.id
+    note.color = obj.color
+    note.voice = obj.voices
     return note
   }
 }
