@@ -4,6 +4,14 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch('notes/fetchAllNotes')
+  }
+}
+</script>
+
 <style lang="scss">
 @import '~vuetify/src/styles/main.sass';
 
