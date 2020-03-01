@@ -1,4 +1,4 @@
-export default class DB {
+export class DB {
   constructor() {
     this.db = null
     this.request = null
@@ -121,3 +121,5 @@ export default class DB {
     return { promise, ok, no }
   }
 }
+
+export default new DB()
