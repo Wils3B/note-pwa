@@ -1,13 +1,8 @@
 import Note from '~/model/note'
+import DB from '~/model/db'
 
 export const state = () => {
   const notes = []
-  for (let i = 0; i < localStorage.length; i += 1) {
-    const key = localStorage.key(i)
-    if (/^note-\d{1,}$/.test(key)) {
-      notes.push(Note.fromJSON(localStorage.getItem(key)))
-    }
-  }
   return {
     notes
   }
@@ -16,13 +11,13 @@ export const state = () => {
 export const mutations = {
   saveNote(currentState, note) {
     currentState.notes.push(note)
-    localStorage.setItem(`note-${note.id}`, JSON.stringify(note))
+    DB.addNotes(note)
   },
   deleteNote(currentState, id) {
     const note = currentState.notes.filter((note) => note.id === id)[0]
     const index = currentState.notes.indexOf(note)
     currentState.notes.splice(index, 1)
-    localStorage.removeItem(`note-${id}`)
+    DB.deleteNotes(id)
   },
   editNote(currentState, note) {
     const index = currentState.notes.indexOf(
@@ -33,7 +28,10 @@ export const mutations = {
     currentNote.setContent(note.content)
     currentState.notes.splice(index, 1)
     currentState.notes.push(currentNote)
-    localStorage.setItem(`note-${currentNote.id}`, JSON.stringify(currentNote))
+    DB.putNotes(note)
+  },
+  setAllNotes(currentState, notes) {
+    currentState.notes = notes
   }
 }
 
@@ -41,5 +39,17 @@ export const getters = {
   noteById(currentState) {
     window.notes = currentState.notes
     return (id) => currentState.notes.filter((note) => note.id === id)[0]
+  }
+}
+
+export const actions = {
+  async fetchAllNotes(context) {
+    if (!DB.connected) await DB.connect()
+    let notes
+    if (DB.connected) notes = await DB.getAllNotes()
+    context.commit(
+      'setAllNotes',
+      notes.data.map((note) => Note.fromRAW(note))
+    )
   }
 }

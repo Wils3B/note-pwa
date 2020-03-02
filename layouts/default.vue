@@ -4,12 +4,20 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch('notes/fetchAllNotes')
+  }
+}
+</script>
+
 <style lang="scss">
 @import '~vuetify/src/styles/main.sass';
 
 .page-enter-active,
 .page-leave-active {
-  transition: transform 0.4s;
+  transition: transform 0.5s;
   transform-origin: top right;
 }
 .page-enter,
