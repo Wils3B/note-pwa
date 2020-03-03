@@ -30,17 +30,15 @@ export default {
   props: {
     note: {
       type: Object,
-      default() {
-        return new Note('new note')
-      }
+      default: () => {}
     }
   },
   computed: {
     noteText() {
-      const str = this.note.textContent
-      if (this.note.hasImage && str.length > 22)
+      const str = Note.textContent(this.note)
+      if (Note.hasImage(this.note) && str.length > 22)
         return `${str.slice(0, 18)} ...`
-      else if (!this.note.hasImage && str.length > 95)
+      else if (!Note.hasImage(this.note) && str.length > 95)
         return `${str.slice(0, 92)} ...`
       return str
     },

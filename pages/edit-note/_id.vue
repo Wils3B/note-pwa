@@ -111,10 +111,10 @@ export default {
       note.color = this.color
       if (this.note) {
         note.id = this.note.id
-        if (note.textContent.trim() !== '')
+        if (Note.textContent(note).trim() !== '')
           this.$store.commit('notes/editNote', note)
         else this.$store.commit('notes/deleteNote', note.id)
-      } else if (note.textContent.trim() !== '') {
+      } else if (Note.textContent(note).trim() !== '') {
         this.$store.commit('notes/saveNote', note)
       }
       this.$router.go(-1)
