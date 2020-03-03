@@ -46,7 +46,7 @@
   }
   .v-content {
     background-color: $light-grey;
-    padding: 64px 16px 0px 16px !important;
+    padding: 64px 16px 16px 16px !important;
   }
 }
 </style>
