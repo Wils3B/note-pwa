@@ -92,6 +92,7 @@ export default {
         Number(this.$route.params.id)
       )
       this.editor.setHTML(this.note.content)
+      this.color = this.note.color
     }
   },
   methods: {
