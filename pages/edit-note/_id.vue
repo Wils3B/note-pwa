@@ -65,6 +65,7 @@ import Squire from '@superhuman/squire-rte'
 import Note from '~/model/note'
 
 export default {
+  name: 'NoteEditPage',
   data() {
     return {
       editor: null,

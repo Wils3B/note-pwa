@@ -26,6 +26,7 @@
 import Note from '~/model/note'
 
 export default {
+  name: 'NoteCard',
   props: {
     note: {
       type: Object,

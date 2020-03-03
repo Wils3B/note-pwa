@@ -18,6 +18,7 @@
 import AppNoteCard from '~/components/NoteCard.vue'
 
 export default {
+  name: 'NoteList',
   components: {
     AppNoteCard
   },

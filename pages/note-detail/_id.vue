@@ -27,6 +27,7 @@
 import Note from '~/model/note'
 
 export default {
+  name: 'NoteDetailsPage',
   data() {
     return {
       note: new Note()

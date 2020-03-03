@@ -57,6 +57,7 @@ import AppNoteList from '~/components/NotesList.vue'
 import AppNoteListColor from '~/components/NotesListColor.vue'
 
 export default {
+  name: 'HomePage',
   components: {
     AppPlusBtn,
     AppNoteList,

@@ -11,6 +11,7 @@
 import AppNoteList from '~/components/NotesList.vue'
 
 export default {
+  name: 'NoteListColor',
   components: {
     AppNoteList
   },

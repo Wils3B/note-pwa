@@ -4,6 +4,12 @@
   </v-btn>
 </template>
 
+<script>
+export default {
+  name: 'PlusButton'
+}
+</script>
+
 <style scoped>
 .plus-btn {
   bottom: 16px;
