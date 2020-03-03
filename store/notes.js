@@ -46,7 +46,9 @@ export const actions = {
   async fetchAllNotes(context) {
     if (!DB.connected) await DB.connect()
     let notes
-    if (DB.connected) notes = await DB.getAllNotes()
-    context.commit('setAllNotes', notes)
+    if (DB.connected) {
+      notes = await DB.getAllNotes()
+      context.commit('setAllNotes', notes.data)
+    }
   }
 }
