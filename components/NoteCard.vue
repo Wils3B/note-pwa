@@ -35,7 +35,8 @@ export default {
   },
   computed: {
     noteText() {
-      const str = Note.textContent(this.note)
+      let str = Note.textContent(this.note)
+      str = str[0].toUpperCase() + str.slice(1)
       if (Note.hasImage(this.note) && str.length > 22)
         return `${str.slice(0, 18)} ...`
       else if (!Note.hasImage(this.note) && str.length > 95)
@@ -90,9 +91,12 @@ export default {
 
     &.main-text > p {
       height: 100%;
+      max-height: 100%;
       margin: 0;
       text-overflow: ellipsis;
+      overflow: hidden;
       padding-bottom: 0px;
+      line-height: 1.4;
     }
 
     &.footer-text {
@@ -100,6 +104,7 @@ export default {
       padding-top: 2px;
       display: flex;
       justify-content: space-between;
+      font-weight: 700;
     }
   }
 }
