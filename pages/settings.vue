@@ -1,7 +1,7 @@
 <template>
   <div class="v-application--wrap settings">
     <v-app-bar color="primary" dark fixed>
-      <v-btn @click="$router.go(-1)" icon>
+      <v-btn @click="storeSettings" icon>
         <v-icon>arrow_back</v-icon>
       </v-btn>
       <v-toolbar-title>
@@ -27,6 +27,12 @@ export default {
     return {
       sortType: this.$store.state.settings.selecteds.sortType
     }
+  },
+  methods: {
+    storeSettings() {
+      this.$store.commit('settings/changeSortType', this.sortType)
+      this.$router.go(-1)
+    }
   }
 }
 </script>
@@ -37,7 +43,7 @@ export default {
     flex-grow: 0;
   }
   .v-content {
-    background-color: $light-grey;
+    background-color: white;
     padding: 64px 16px 16px 16px !important;
   }
 }
