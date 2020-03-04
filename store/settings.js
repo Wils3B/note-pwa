@@ -1,6 +1,11 @@
 export const state = () => {
   return {
-    sortType: 'date'
+    selecteds: {
+      sortType: 'date'
+    },
+    groups: {
+      sortTypes: ['date', 'color']
+    }
   }
 }
 
