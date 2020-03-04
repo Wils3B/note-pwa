@@ -51,10 +51,9 @@ export default {
 
 <style lang="scss">
 .note-list-color {
-  section {
+  .v-expansion-panel-content__wrap {
     padding-top: 8px;
     padding-bottom: 8px;
-    border-bottom: 1px solid gray;
   }
 }
 </style>
