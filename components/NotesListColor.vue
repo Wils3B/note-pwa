@@ -1,9 +1,18 @@
 <template>
   <div class="note-list-color">
-    <section v-for="(el, index) of sorted" :key="index">
-      <h3>{{ el.color }} ( {{ el.notes.length }} )</h3>
-      <app-note-list :notes="el.notes" />
-    </section>
+    <v-expansion-panels multiple>
+      <v-expansion-panel v-for="(el, index) of sorted" :key="index">
+        <v-expansion-panel-header expand-icon="expand_more">
+          {{ el.color }} ( {{ el.notes.length }} )
+        </v-expansion-panel-header>
+        <v-expansion-panel-content color="brown">
+          <app-note-list
+            :notes="el.notes"
+            :sizes="{ cols: 12, sm: 6, md: 4, lg: 3, xl: 2 }"
+          />
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </div>
 </template>
 
