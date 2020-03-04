@@ -86,7 +86,7 @@ export default {
       return this.$store.state.notes.notes
     },
     sortType() {
-      return this.$store.state.settings.sortType
+      return this.$store.state.settings.selecteds.sortType
     }
   },
   methods: {

@@ -11,6 +11,6 @@ export const state = () => {
 
 export const mutations = {
   changeSortType(currentState, type) {
-    currentState.sortType = type
+    currentState.selecteds.sortType = type
   }
 }
