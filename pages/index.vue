@@ -28,6 +28,24 @@
           </v-list-item>
         </v-list>
       </v-menu>
+
+      <v-menu transition="scale-transition" left offset-x>
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item to="/settings">
+            <v-list-item-icon class="mr-2">
+              <v-icon>settings</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Settings</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
