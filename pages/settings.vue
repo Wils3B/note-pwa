@@ -10,14 +10,24 @@
     </v-app-bar>
 
     <v-content>
-      is the newest girl
+      <v-select
+        :items="$store.state.settings.groups.sortTypes"
+        v-model="sortType"
+        label="Default sort type"
+        filled
+      />
     </v-content>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SettingsPage'
+  name: 'SettingsPage',
+  data() {
+    return {
+      sortType: this.$store.state.settings.selecteds.sortType
+    }
+  }
 }
 </script>
 
