@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss">
-.note-card {
+.note-card.v-card {
   height: 100%;
   max-height: 160px;
   overflow: hidden;
