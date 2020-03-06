@@ -22,6 +22,8 @@
         label="Default color"
         filled
       />
+      <v-spacer />
+      <p class="version"><em>Note PWA</em>, Version 1.0.2, Date: 2020-03-06</p>
     </v-content>
   </div>
 </template>
@@ -53,6 +55,11 @@ export default {
   .v-content {
     background-color: white;
     padding: 64px 16px 16px 16px !important;
+  }
+  .version {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
   }
 }
 </style>
