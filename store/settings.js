@@ -2,7 +2,8 @@ export const state = () => {
   const loadedSettings = loadSettings()
   return {
     selecteds: {
-      sortType: loadedSettings.sortType || 'date'
+      sortType: loadedSettings.sortType || 'date',
+      defaultColor: loadSettings.defaultColor || 'white'
     },
     groups: {
       sortTypes: ['date', 'color']
@@ -13,6 +14,10 @@ export const state = () => {
 export const mutations = {
   changeSortType(currentState, type) {
     currentState.selecteds.sortType = type
+    storeSettings(currentState.selecteds)
+  },
+  changeDefaultColor(currentState, color) {
+    currentState.selecteds.defaultColor = color
     storeSettings(currentState.selecteds)
   }
 }
