@@ -22,7 +22,6 @@
         label="Default color"
         filled
       />
-      <v-spacer />
       <p class="version"><em>Note PWA</em>, Version 1.0.2, Date: 2020-03-06</p>
     </v-content>
   </div>
