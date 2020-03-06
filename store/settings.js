@@ -3,10 +3,12 @@ export const state = () => {
   return {
     selecteds: {
       sortType: loadedSettings.sortType || 'date',
-      defaultColor: loadSettings.defaultColor || 'white'
+      defaultColor: loadedSettings.defaultColor || 'white',
+      appFont: loadedSettings.appFont || 'Amita'
     },
     groups: {
-      sortTypes: ['date', 'color']
+      sortTypes: ['date', 'color'],
+      fonts: ['Kalam', 'Amita', 'Roboto']
     }
   }
 }
@@ -18,6 +20,10 @@ export const mutations = {
   },
   changeDefaultColor(currentState, color) {
     currentState.selecteds.defaultColor = color
+    storeSettings(currentState.selecteds)
+  },
+  changeAppFont(currentState, font) {
+    currentState.selecteds.appFont = font
     storeSettings(currentState.selecteds)
   }
 }
