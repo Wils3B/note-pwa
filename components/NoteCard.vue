@@ -4,11 +4,7 @@
     :to="`/note-detail/${note.id}`"
     class="note-card"
   >
-    <v-img
-      v-if="note && note.hasImage"
-      :src="note.getFirstImage()"
-      height="100px"
-    ></v-img>
+    <v-img v-if="firstImage" :src="firstImage" height="100px"></v-img>
     <v-card-text class="main-text">
       <p v-text="noteText" />
     </v-card-text>
@@ -54,6 +50,10 @@ export default {
         return date.toTimeString().slice(0, 5)
       }
       return this.note.modifiedAt.slice(0, 10)
+    },
+    firstImage() {
+      if (Note.hasImage(this.note)) return Note.getFirstImage(this.note)
+      return undefined
     }
   }
 }
