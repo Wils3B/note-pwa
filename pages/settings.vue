@@ -16,6 +16,12 @@
         label="Default sort type"
         filled
       />
+      <v-select
+        :items="$store.state.colors"
+        v-model="defaultColor"
+        label="Default color"
+        filled
+      />
     </v-content>
   </div>
 </template>
@@ -25,12 +31,14 @@ export default {
   name: 'SettingsPage',
   data() {
     return {
-      sortType: this.$store.state.settings.selecteds.sortType
+      sortType: this.$store.state.settings.selecteds.sortType,
+      defaultColor: this.$store.state.settings.selecteds.defaultColor
     }
   },
   methods: {
     storeSettings() {
       this.$store.commit('settings/changeSortType', this.sortType)
+      this.$store.commit('settings/changeDefaultColor', this.defaultColor)
       this.$router.go(-1)
     }
   }
