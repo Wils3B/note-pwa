@@ -61,7 +61,7 @@ export default {
   }
   .v-content {
     background-color: white;
-    padding: 64px 16px 16px 16px !important;
+    padding: 72px 16px 16px 16px !important;
   }
   .version {
     text-align: center;
