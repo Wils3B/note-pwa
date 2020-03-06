@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       editor: null,
-      color: 'white',
+      color: this.$store.state.settings.selecteds.defaultColor,
       note: null
     }
   },
