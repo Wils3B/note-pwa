@@ -22,6 +22,12 @@
         label="Default color"
         filled
       />
+      <v-select
+        :items="$store.state.settings.groups.fonts"
+        v-model="appFont"
+        label="App. Font"
+        filled
+      />
       <p class="version"><em>Note PWA</em>, Version 1.0.2, Date: 2020-03-06</p>
     </v-content>
   </div>
@@ -33,13 +39,15 @@ export default {
   data() {
     return {
       sortType: this.$store.state.settings.selecteds.sortType,
-      defaultColor: this.$store.state.settings.selecteds.defaultColor
+      defaultColor: this.$store.state.settings.selecteds.defaultColor,
+      appFont: this.$store.state.settings.selecteds.appFont
     }
   },
   methods: {
     storeSettings() {
       this.$store.commit('settings/changeSortType', this.sortType)
       this.$store.commit('settings/changeDefaultColor', this.defaultColor)
+      this.$store.commit('settings/changeAppFont', this.appFont)
       this.$router.go(-1)
     }
   }
