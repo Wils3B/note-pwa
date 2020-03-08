@@ -48,7 +48,10 @@ export const actions = {
     let notes
     if (DB.connected) {
       notes = await DB.getAllNotes()
-      context.commit('setAllNotes', notes.data)
+      context.commit(
+        'setAllNotes',
+        notes.data.sort((a, b) => (a.modifiedAt < b.modifiedAt ? -1 : 1))
+      )
     }
   }
 }
