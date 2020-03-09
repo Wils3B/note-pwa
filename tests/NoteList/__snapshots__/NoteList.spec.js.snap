@@ -3,9 +3,12 @@
 exports[`Note List Have a correct render 1`] = `
 "<div class=\\"row note-list\\">
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267092854\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-white\\" tabindex=\\"0\\">
-      <!---->
+      <div class=\\"v-responsive v-image\\" style=\\"height: 100px;\\">
+        <div class=\\"v-image__image v-image__image--preload v-image__image--cover\\" style=\\"background-position: center center;\\"></div>
+        <div class=\\"v-responsive__content\\"></div>
+      </div>
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583267092854</p>
+        <p>Note 1583267092854 </p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
