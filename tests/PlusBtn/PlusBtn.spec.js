@@ -11,7 +11,7 @@ describe('Plus Button', () => {
     router
   })
 
-  test('it should be a vue instance named PlusButton', () => {
+  test('it should be a vue instance', () => {
     expect(wrapper.isVueInstance).toBeTruthy()
   })
 
