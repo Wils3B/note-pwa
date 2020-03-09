@@ -24,4 +24,18 @@ describe('Note List', () => {
   test('Have a correct render', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  test('it should have 12 note cards', () => {
+    expect(wrapper.findAll('.note-list>.note-wrapper').length).toBe(12)
+  })
+
+  test('it should not have any card if any note is passed as prop', () => {
+    const localWrapper = mount(NotesList, {
+      localVue,
+      router,
+      store
+    })
+
+    expect(localWrapper.findAll('.note-list>.note-wrapper').length).toBe(0)
+  })
 })
