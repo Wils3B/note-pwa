@@ -16,7 +16,7 @@ describe('Plus Button', () => {
   })
 
   test('Have a correct render', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   test('it should have correct icon', () => {
