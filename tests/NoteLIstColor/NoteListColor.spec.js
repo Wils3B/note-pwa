@@ -7,7 +7,7 @@ import NotesListColor from '~/components/NotesListColor.vue'
 
 const localVue = localInstance()
 
-describe('Plus Button', () => {
+describe('Note List Color', () => {
   const wrapper = mount(NotesListColor, {
     localVue,
     router,
