@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Plus Button Have a correct render 1`] = `
+exports[`Note List Color Have a correct render 1`] = `
 "<div class=\\"note-list-color\\">
   <div class=\\"v-item-group theme--light v-expansion-panels\\">
     <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
