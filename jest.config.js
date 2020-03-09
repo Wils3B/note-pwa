@@ -21,5 +21,6 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue'
-  ]
+  ],
+  setupFilesAfterEnv: ['<rootDir>/tests/common.js']
 }
