@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note List Have a correct render 1`] = `
+"<div class=\\"row note-list\\">
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267092854\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-white\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583267092854</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267133077\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-purple\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583267133077</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267075908\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-red\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583267075908</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583266765730\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-green\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583266765730</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267808194\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583267808194</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311360827\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-white\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583311360827</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-04
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311794631\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583311794631</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-04
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583313433510\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583313433510</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-04
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583474432437\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-green\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583474432437</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-06
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583478409029\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-blue\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583478409029</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-06
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583478644306\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583478644306</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-06
+    </span>
+        <!---->
+      </div>
+    </a></div>
+  <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311559736\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-blue\\" tabindex=\\"0\\">
+      <!---->
+      <div class=\\"v-card__text main-text\\">
+        <p>Note 1583311559736</p>
+      </div>
+      <div class=\\"spacer\\"></div>
+      <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-08
+    </span>
+        <!---->
+      </div>
+    </a></div>
+</div>"
+`;
