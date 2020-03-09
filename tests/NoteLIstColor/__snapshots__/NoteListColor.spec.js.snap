@@ -2,6 +2,37 @@
 
 exports[`Plus Button Have a correct render 1`] = `
 "<div class=\\"note-list-color\\">
-  <div class=\\"v-item-group theme--light v-expansion-panels\\"></div>
+  <div class=\\"v-item-group theme--light v-expansion-panels\\">
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        yellow ( 4 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        white ( 2 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        green ( 2 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        blue ( 2 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        purple ( 1 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+    <div aria-expanded=\\"false\\" class=\\"v-expansion-panel\\"><button type=\\"button\\" class=\\"v-expansion-panel-header\\">
+        red ( 1 )
+        <div class=\\"v-expansion-panel-header__icon\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate material-icons theme--light\\">expand_more</i></div></button>
+      <div class=\\"v-expansion-panel-content brown\\" style=\\"display: none;\\"></div>
+    </div>
+  </div>
 </div>"
 `;
