@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" :class="$store.state.settings.selecteds.appFont">
     <nuxt />
   </v-app>
 </template>
@@ -13,8 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~vuetify/src/styles/main.sass';
-
 .page-enter-active,
 .page-leave-active {
   transition: transform 0.5s;
@@ -30,5 +28,17 @@ export default {
   background-image: url('/images/icons/icon-144x144.png');
   background-position: center center;
   background-repeat: no-repeat;
+
+  &.Kalam {
+    font-family: Kalam, sans-serif;
+  }
+
+  &.Amita {
+    font-family: Amita, sans-serif;
+  }
+
+  &.Roboto {
+    font-family: Roboto, sans-serif;
+  }
 }
 </style>

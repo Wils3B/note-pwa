@@ -4,11 +4,7 @@
     :to="`/note-detail/${note.id}`"
     class="note-card"
   >
-    <v-img
-      v-if="note && note.hasImage"
-      :src="note.getFirstImage()"
-      height="100px"
-    ></v-img>
+    <v-img v-if="firstImage" :src="firstImage" height="100px"></v-img>
     <v-card-text class="main-text">
       <p v-text="noteText" />
     </v-card-text>
@@ -26,20 +22,20 @@
 import Note from '~/model/note'
 
 export default {
+  name: 'NoteCard',
   props: {
     note: {
       type: Object,
-      default() {
-        return new Note('new note')
-      }
+      default: () => {}
     }
   },
   computed: {
     noteText() {
-      const str = this.note.textContent
-      if (this.note.hasImage && str.length > 22)
+      let str = Note.textContent(this.note)
+      str = str[0].toUpperCase() + str.slice(1)
+      if (Note.hasImage(this.note) && str.length > 22)
         return `${str.slice(0, 18)} ...`
-      else if (!this.note.hasImage && str.length > 95)
+      else if (!Note.hasImage(this.note) && str.length > 95)
         return `${str.slice(0, 92)} ...`
       return str
     },
@@ -54,13 +50,17 @@ export default {
         return date.toTimeString().slice(0, 5)
       }
       return this.note.modifiedAt.slice(0, 10)
+    },
+    firstImage() {
+      if (Note.hasImage(this.note)) return Note.getFirstImage(this.note)
+      return undefined
     }
   }
 }
 </script>
 
 <style lang="scss">
-.note-card {
+.note-card.v-card {
   height: 100%;
   max-height: 160px;
   overflow: hidden;
@@ -91,9 +91,12 @@ export default {
 
     &.main-text > p {
       height: 100%;
+      max-height: 100%;
       margin: 0;
       text-overflow: ellipsis;
+      overflow: hidden;
       padding-bottom: 0px;
+      line-height: 1.4;
     }
 
     &.footer-text {
@@ -101,6 +104,7 @@ export default {
       padding-top: 2px;
       display: flex;
       justify-content: space-between;
+      font-weight: 700;
     }
   }
 }

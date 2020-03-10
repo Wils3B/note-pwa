@@ -65,10 +65,11 @@ import Squire from '@superhuman/squire-rte'
 import Note from '~/model/note'
 
 export default {
+  name: 'NoteEditPage',
   data() {
     return {
       editor: null,
-      color: 'white',
+      color: this.$store.state.settings.selecteds.defaultColor,
       note: null
     }
   },
@@ -91,6 +92,7 @@ export default {
         Number(this.$route.params.id)
       )
       this.editor.setHTML(this.note.content)
+      this.color = this.note.color
     }
   },
   methods: {
@@ -110,10 +112,10 @@ export default {
       note.color = this.color
       if (this.note) {
         note.id = this.note.id
-        if (note.textContent.trim() !== '')
+        if (Note.textContent(note).trim() !== '')
           this.$store.commit('notes/editNote', note)
         else this.$store.commit('notes/deleteNote', note.id)
-      } else if (note.textContent.trim() !== '') {
+      } else if (Note.textContent(note).trim() !== '') {
         this.$store.commit('notes/saveNote', note)
       }
       this.$router.go(-1)

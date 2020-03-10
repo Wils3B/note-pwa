@@ -6,7 +6,6 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - Note App',
     title: 'Note App',
     meta: [
       { charset: 'utf-8' },

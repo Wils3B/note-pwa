@@ -8,60 +8,46 @@ export default class Note {
     this.id = new Date().getTime()
   }
 
-  get hasImage() {
-    return /<img src=".+">/.test(this.content)
+  static hasImage(note) {
+    return /<img src=".+">/.test(note.content)
   }
 
-  hasVoices() {
-    return this.voices.length >= 0
+  static hasVoices(note) {
+    return note.voices.length >= 0
   }
 
-  getFirstImage() {
-    const match = this.content.match(/<img src=".+">/)
+  static getFirstImage(note) {
+    const match = note.content.match(/<img src=".+">/)
     if (match) {
       return match[0].match(/(?<=src=").+(?=">)/)[0]
     }
     return null
   }
 
-  setContent(content) {
-    this.updateModified()
-    this.content = content
+  static setContent(note, content) {
+    Note.updateModified(note)
+    note.content = content
   }
 
-  get textContent() {
+  static textContent(note) {
     const el = document.createElement('p')
-    let copy = this.content
+    let copy = note.content
     while (copy.search('<br>') >= 0) copy = copy.replace('<br>', ' ')
     el.innerHTML = copy
     return el.textContent
   }
 
-  updateModified() {
-    this.modifiedAt = new Date().toISOString()
+  static updateModified(note) {
+    note.modifiedAt = new Date().toISOString()
   }
 
-  addVoice(voice) {
-    this.updateModified()
-    this.voices.push(voice)
+  static addVoice(note, voice) {
+    Note.updateModified(note)
+    note.voices.push(voice)
   }
 
-  removeVoice(voice) {
-    this.updateModified()
-    this.voices.splice(this.voices.indexOf(voice), 1)
-  }
-
-  static fromJSON(json) {
-    return this.fromRAW(JSON.parse(json))
-  }
-
-  static fromRAW(obj) {
-    const note = new Note(obj.content)
-    note.createdAt = obj.createdAt
-    note.modifiedAt = obj.modifiedAt
-    note.id = obj.id
-    note.color = obj.color
-    note.voice = obj.voices
-    return note
+  static removeVoice(note, voice) {
+    Note.updateModified(note)
+    note.voices.splice(note.voices.indexOf(voice), 1)
   }
 }

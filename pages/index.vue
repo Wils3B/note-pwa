@@ -28,6 +28,24 @@
           </v-list-item>
         </v-list>
       </v-menu>
+
+      <v-menu transition="scale-transition" left offset-x>
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item to="/settings">
+            <v-list-item-icon class="mr-2">
+              <v-icon>settings</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Settings</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
@@ -46,7 +64,7 @@
   }
   .v-content {
     background-color: $light-grey;
-    padding: 64px 16px 0px 16px !important;
+    padding: 64px 16px 16px 16px !important;
   }
 }
 </style>
@@ -57,6 +75,7 @@ import AppNoteList from '~/components/NotesList.vue'
 import AppNoteListColor from '~/components/NotesListColor.vue'
 
 export default {
+  name: 'HomePage',
   components: {
     AppPlusBtn,
     AppNoteList,
@@ -67,7 +86,7 @@ export default {
       return this.$store.state.notes.notes
     },
     sortType() {
-      return this.$store.state.settings.sortType
+      return this.$store.state.settings.selecteds.sortType
     }
   },
   methods: {

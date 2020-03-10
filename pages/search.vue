@@ -55,6 +55,7 @@ import AppPlusBtn from '~/components/PlusBtn.vue'
 import AppNotesList from '~/components/NotesList.vue'
 
 export default {
+  name: 'SearchPage',
   components: {
     AppPlusBtn,
     AppNotesList
