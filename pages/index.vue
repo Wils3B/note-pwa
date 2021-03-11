@@ -1,17 +1,15 @@
 <template>
   <div class="v-application--wrap home">
     <v-app-bar color="primary" dark fixed>
-      <v-toolbar-title>
-        Note App
-      </v-toolbar-title>
+      <v-toolbar-title> Note App </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon to="/search">
         <v-icon>search</v-icon>
       </v-btn>
 
       <v-menu transition="scale-transition" left offset-x>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
+        <template #activator="{ on }">
+          <v-btn icon v-on="on">
             <v-icon>sort</v-icon>
           </v-btn>
         </template>
@@ -30,8 +28,8 @@
       </v-menu>
 
       <v-menu transition="scale-transition" left offset-x>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
+        <template #activator="{ on }">
+          <v-btn icon v-on="on">
             <v-icon>more_vert</v-icon>
           </v-btn>
         </template>
@@ -57,18 +55,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.home {
-  .v-toolbar {
-    flex-grow: 0;
-  }
-  .v-content {
-    background-color: $light-grey;
-    padding: 64px 16px 16px 16px !important;
-  }
-}
-</style>
-
 <script>
 import AppPlusBtn from '~/components/PlusBtn.vue'
 import AppNoteList from '~/components/NotesList.vue'
@@ -79,7 +65,7 @@ export default {
   components: {
     AppPlusBtn,
     AppNoteList,
-    AppNoteListColor
+    AppNoteListColor,
   },
   computed: {
     notes() {
@@ -87,7 +73,7 @@ export default {
     },
     sortType() {
       return this.$store.state.settings.selecteds.sortType
-    }
+    },
   },
   methods: {
     sortByDate() {
@@ -95,7 +81,19 @@ export default {
     },
     sortByColor() {
       this.$store.commit('settings/changeSortType', 'color')
-    }
-  }
+    },
+  },
 }
 </script>
+
+<style lang="scss">
+.home {
+  .v-toolbar {
+    flex-grow: 0;
+  }
+  .v-content {
+    background-color: $light-grey;
+    padding: 84px 16px 16px 16px !important;
+  }
+}
+</style>
