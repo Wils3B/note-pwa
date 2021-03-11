@@ -1,7 +1,7 @@
 <template>
   <div class="v-application--wrap details">
     <v-app-bar color="primary" dark fixed>
-      <v-btn @click="$router.go(-1)" icon>
+      <v-btn icon @click="$router.go(-1)">
         <v-icon>arrow_back</v-icon>
       </v-btn>
       <v-toolbar-title>
@@ -13,11 +13,12 @@
         <v-icon>edit</v-icon>
       </v-btn>
 
-      <v-btn @click="onDelete" icon>
+      <v-btn icon @click="onDelete">
         <v-icon>delete</v-icon>
       </v-btn>
     </v-app-bar>
     <v-content>
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <div id="text-note" v-html="note.content"></div>
     </v-content>
   </div>
@@ -30,7 +31,7 @@ export default {
   name: 'NoteDetailsPage',
   data() {
     return {
-      note: new Note()
+      note: new Note(),
     }
   },
   computed: {
@@ -45,7 +46,7 @@ export default {
         return date.toTimeString().slice(0, 5)
       }
       return this.note.modifiedAt.slice(0, 10)
-    }
+    },
   },
   mounted() {
     const note = this.$store.getters['notes/noteById'](
@@ -58,8 +59,8 @@ export default {
     onDelete() {
       this.$router.push('/')
       this.$store.commit('notes/deleteNote', this.note.id)
-    }
-  }
+    },
+  },
 }
 </script>
 
