@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import { localInstance } from '../common'
 import router from '../router'
 import store from '../store'
@@ -12,9 +13,10 @@ describe('Note List Color', () => {
     localVue,
     router,
     store,
+    vuetify: new Vuetify(),
     propsData: {
-      notes
-    }
+      notes,
+    },
   })
 
   test('it should be a vue instance', () => {
@@ -43,9 +45,7 @@ describe('Note List Color', () => {
       colors.splice(colors.find((color) => color.count === 0))
 
       colors.forEach((color, index) => {
-        expect(groups.at(index).text()).toBe(
-          `${color.color} ( ${color.count} )`
-        )
+        expect(groups.at(index).text()).toBe(`${color.color} ( ${color.count} )`)
       })
     })
 
@@ -53,7 +53,7 @@ describe('Note List Color', () => {
       const localWrapper = mount(NotesListColor, {
         localVue,
         router,
-        store
+        store,
       })
       expect(localWrapper.findAll('.v-expansion-panel').length).toBe(0)
     })

@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import { localInstance } from '../common'
 import router from '../router'
 import PlusBtn from '~/components/PlusBtn.vue'
@@ -8,11 +9,8 @@ const localVue = localInstance()
 describe('Plus Button', () => {
   const wrapper = mount(PlusBtn, {
     localVue,
-    router
-  })
-
-  test('it should be a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy()
+    router,
+    vuetify: new Vuetify(),
   })
 
   test('Have a correct render', () => {

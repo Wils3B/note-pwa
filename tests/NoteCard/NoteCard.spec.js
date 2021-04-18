@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import { localInstance } from '../common'
 import router from '../router'
 import store from '../store'
@@ -12,9 +13,10 @@ describe('Note Card', () => {
     localVue,
     router,
     store,
+    vuetify: new Vuetify(),
     propsData: {
-      note: notes[0]
-    }
+      note: notes[0],
+    },
   })
 
   test('it should be a vue instance', () => {
@@ -45,12 +47,10 @@ describe('Note Card', () => {
     const localWrapper = mount(NoteCard, {
       localVue,
       router,
-      store
+      store,
     })
     expect(localWrapper.find('.v-image').exists()).toBe(false)
     expect(localWrapper.find('.main-text').text()).toBe('Welcome to Note PWA')
-    expect(localWrapper.find('.footer-text').text()).toBe(
-      new Date().toTimeString().slice(0, 5)
-    )
+    expect(localWrapper.find('.footer-text').text()).toBe(new Date().toTimeString().slice(0, 5))
   })
 })

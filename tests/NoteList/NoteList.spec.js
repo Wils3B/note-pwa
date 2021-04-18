@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import { localInstance } from '../common'
 import router from '../router'
 import store from '../store'
@@ -12,9 +13,10 @@ describe('Note List', () => {
     localVue,
     router,
     store,
+    vuetify: new Vuetify(),
     propsData: {
-      notes
-    }
+      notes,
+    },
   })
 
   test('it should be a vue instance', () => {
@@ -33,7 +35,7 @@ describe('Note List', () => {
     const localWrapper = mount(NotesList, {
       localVue,
       router,
-      store
+      store,
     })
 
     expect(localWrapper.findAll('.note-list>.note-wrapper').length).toBe(0)
