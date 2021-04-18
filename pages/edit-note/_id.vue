@@ -7,7 +7,7 @@
       <v-toolbar-title> {{ note ? 'Edit' : 'New' }} Note </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <input id="attach" type="file" name="attach" class="d-none" />
+      <input id="attach" ref="attachFile" type="file" name="attach" class="d-none" />
 
       <v-menu transition="scale-transition" left offset-x>
         <template #activator="{ on }">
@@ -48,7 +48,7 @@
       </v-menu>
     </v-app-bar>
     <v-main :class="'lt-' + color">
-      <div id="text-editor" autofocus></div>
+      <div id="text-editor" ref="textEditor" autofocus></div>
     </v-main>
     <v-snackbar v-model="alertSave" top right timeout="2000" color="secondary">
       Note Saved
@@ -77,9 +77,9 @@ export default {
     },
   },
   mounted() {
-    this.editor = new Squire(document.getElementById('text-editor'))
-    document.getElementById('attach').addEventListener('change', () => {
-      const files = document.getElementById('attach').files
+    this.editor = new Squire(this.$refs.textEditor)
+    this.$refs.attachFile.addEventListener('change', () => {
+      const files = this.$refs.attachFile.files
       if (files.length === 0) return
       if (files[0].type.indexOf('image/') === 0) this.openImage(files[0])
     })
