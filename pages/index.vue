@@ -46,12 +46,12 @@
       </v-menu>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <app-note-list v-if="sortType === 'date'" :notes="notes" />
       <app-note-list-color v-else :notes="notes" />
 
       <app-plus-btn />
-    </v-content>
+    </v-main>
   </div>
 </template>
 
@@ -91,7 +91,7 @@ export default {
   .v-toolbar {
     flex-grow: 0;
   }
-  .v-content {
+  .v-main {
     background-color: $light-grey;
     padding: 84px 16px 16px 16px !important;
   }

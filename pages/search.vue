@@ -1,13 +1,11 @@
 <template>
   <div class="v-application--wrap search">
     <v-app-bar color="primary" dark fixed>
-      <v-btn @click="$router.go(-1)" icon class="mr-4">
+      <v-btn icon class="mr-4" @click="$router.go(-1)">
         <v-icon>arrow_back</v-icon>
       </v-btn>
 
       <v-text-field
-        @change="onChange"
-        @input="onInput"
         hide-details
         prepend-inner-icon="search"
         single-line
@@ -16,19 +14,19 @@
         type="search"
         placeholder="Search here"
         clear-icon="clear"
+        @change="onChange"
+        @input="onInput"
       />
     </v-app-bar>
 
-    <v-content>
-      <div v-show="results.length === 0" class="no-results">
-        No resulsts
-      </div>
+    <v-main>
+      <div v-show="results.length === 0" class="no-results">No resulsts</div>
       <div v-show="results.length !== 0">
         <h3>Search results ({{ results.length }})</h3>
         <app-notes-list :notes="results" />
       </div>
       <app-plus-btn />
-    </v-content>
+    </v-main>
   </div>
 </template>
 
@@ -37,7 +35,7 @@
   .v-toolbar {
     flex-grow: 0;
   }
-  .v-content {
+  .v-main {
     background-color: $light-grey;
     padding: 72px 16px 0px 16px !important;
   }
@@ -58,17 +56,17 @@ export default {
   name: 'SearchPage',
   components: {
     AppPlusBtn,
-    AppNotesList
+    AppNotesList,
   },
   data() {
     return {
-      results: []
+      results: [],
     }
   },
   computed: {
     notes() {
       return this.$store.state.notes.notes
-    }
+    },
   },
   methods: {
     onChange(event) {
@@ -78,10 +76,9 @@ export default {
       this.results = []
       if (event === '') return
       for (let i = 0, c = this.notes.length; i < c; i++) {
-        if (this.notes[i].content.search(event) >= 0)
-          this.results.push(this.notes[i])
+        if (this.notes[i].content.search(event) >= 0) this.results.push(this.notes[i])
       }
-    }
-  }
+    },
+  },
 }
 </script>
