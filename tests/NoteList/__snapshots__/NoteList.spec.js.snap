@@ -22,7 +22,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267133077\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-purple\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583267133077</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac justo scelerisque, accumsan ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -46,7 +46,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583266765730\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-green\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583266765730</p>
+        <p>Pellentesque sit amet felis felis. Fusce eu orci tempus metus dictum imperdiet. In consectet ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -58,7 +58,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583267808194\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583267808194</p>
+        <p>Donec at nibh ut risus vehicula luctus ac ut magna. Donec lobortis purus sed leo convallis, ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -70,7 +70,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311360827\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-white\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583311360827</p>
+        <p>Morbi ultrices et purus quis sagittis. Sed justo libero, lobortis in ante sed, semper rhoncu ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -82,7 +82,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311794631\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583311794631</p>
+        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla facilisi. Fusce lobortis ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -94,7 +94,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583313433510\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583313433510</p>
+        <p>Morbi finibus lacinia tortor quis imperdiet. Nam convallis arcu a tellus fringilla interdum. ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -106,7 +106,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583474432437\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-green\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583474432437</p>
+        <p>Aenean at arcu sed tortor dignissim porta. Nullam eu risus mauris. Mauris et congue ipsum. Q ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -118,7 +118,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583478409029\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-blue\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583478409029</p>
+        <p>Fusce quis risus tempus, viverra ante et, pellentesque elit. Aliquam nec odio blandit, solli ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -130,7 +130,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583478644306\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-yellow\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583478644306</p>
+        <p>Quisque sed mollis mauris, ut fermentum mi. Suspendisse vitae nulla ex. Nunc ligula orci, ia ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
@@ -142,7 +142,7 @@ exports[`Note List Have a correct render 1`] = `
   <div class=\\"note-wrapper col-sm-4 col-md-3 col-lg-2 col-6\\"><a href=\\"#/note-detail/1583311559736\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-blue\\" tabindex=\\"0\\">
       <!---->
       <div class=\\"v-card__text main-text\\">
-        <p>Note 1583311559736</p>
+        <p>Nulla elementum sapien in sapien facilisis, nec porttitor tellus laoreet. Cras condimentum r ...</p>
       </div>
       <div class=\\"spacer\\"></div>
       <div class=\\"v-card__text footer-text\\"><span>
