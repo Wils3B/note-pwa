@@ -4,7 +4,7 @@ import Note from '~/model/note'
 export const state = () => {
   const notes = []
   return {
-    notes
+    notes,
   }
 }
 
@@ -32,14 +32,14 @@ export const mutations = {
   },
   setAllNotes(currentState, notes) {
     currentState.notes = notes
-  }
+  },
 }
 
 export const getters = {
   noteById(currentState) {
     window.notes = currentState.notes
     return (id) => currentState.notes.filter((note) => note.id === id)[0]
-  }
+  },
 }
 
 export const actions = {
@@ -53,5 +53,5 @@ export const actions = {
         notes.data.sort((a, b) => (a.modifiedAt < b.modifiedAt ? -1 : 1))
       )
     }
-  }
+  },
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="v-application--wrap new-note">
     <v-app-bar color="primary" dark fixed>
-      <v-btn @click="saveNote" icon>
+      <v-btn icon @click="saveNote(true)">
         <v-icon>check</v-icon>
       </v-btn>
       <v-toolbar-title> {{ note ? 'Edit' : 'New' }} Note </v-toolbar-title>
@@ -10,8 +10,8 @@
       <input id="attach" type="file" name="attach" class="d-none" />
 
       <v-menu transition="scale-transition" left offset-x>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
+        <template #activator="{ on }">
+          <v-btn icon v-on="on">
             <v-icon>attach_file</v-icon>
           </v-btn>
         </template>
@@ -29,17 +29,17 @@
       </v-menu>
 
       <v-menu transition="scale-transition" left offset-x>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
+        <template #activator="{ on }">
+          <v-btn icon v-on="on">
             <v-icon>color_lens</v-icon>
           </v-btn>
         </template>
         <v-list>
           <v-subheader>COLORS</v-subheader>
           <v-list-item
-            @click="color = c"
             v-for="(c, index) in colors"
             :key="index"
+            @click="color = c"
           >
             <v-list-item-avatar
               :class="'lt-' + c"
@@ -57,6 +57,9 @@
     <v-content :class="'lt-' + color">
       <div id="text-editor" autofocus></div>
     </v-content>
+    <v-snackbar v-model="alertSave" top right timeout="2000" color="secondary">
+      Note Saved
+    </v-snackbar>
   </div>
 </template>
 
@@ -70,13 +73,15 @@ export default {
     return {
       editor: null,
       color: this.$store.state.settings.selecteds.defaultColor,
-      note: null
+      note: null,
+      timerId: null,
+      alertSave: false,
     }
   },
   computed: {
     colors() {
       return this.$store.state.colors
-    }
+    },
   },
   mounted() {
     this.editor = new Squire(document.getElementById('text-editor'))
@@ -94,6 +99,15 @@ export default {
       this.editor.setHTML(this.note.content)
       this.color = this.note.color
     }
+
+    // Autosave settings
+    const autosaveTime = this.$store.getters['settings/autosaveInMillis']
+    if (autosaveTime) {
+      this.startAutosave(autosaveTime)
+    }
+  },
+  beforeDestroy() {
+    this.stopAutoSave()
   },
   methods: {
     attachImage() {
@@ -107,7 +121,17 @@ export default {
         this.editor.insertHTML(`<img src="${result}" />`)
       }
     },
-    saveNote() {
+    autosave() {
+      this.saveNote()
+      this.alertSave = true
+    },
+    startAutosave(time) {
+      this.timerId = setInterval(this.autosave, time)
+    },
+    stopAutoSave() {
+      clearInterval(this.timerId)
+    },
+    saveNote(back = false) {
       const note = new Note(this.editor.getHTML())
       note.color = this.color
       if (this.note) {
@@ -118,9 +142,9 @@ export default {
       } else if (Note.textContent(note).trim() !== '') {
         this.$store.commit('notes/saveNote', note)
       }
-      this.$router.go(-1)
-    }
-  }
+      if (back) this.$router.go(-1)
+    },
+  },
 }
 </script>
 
