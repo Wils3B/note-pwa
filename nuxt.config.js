@@ -13,16 +13,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Note App - an progressive web application for notes'
-      }
+        content: 'Note App - A progressive web application for notes',
+      },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'manifest',
-        href: '/manifest.json'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.png' }],
   },
   /*
    ** Customize the progress-bar color
@@ -42,7 +36,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/pwa',
   ],
   /*
    ** Nuxt.js modules
@@ -51,7 +46,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
@@ -66,7 +61,7 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       icons: false,
-      font: false
+      font: false,
     },
     theme: {
       light: true,
@@ -78,10 +73,10 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
   /*
    ** Build configuration
@@ -90,6 +85,37 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
+  pwa: {
+    icon: {
+      source: '~/static/icon.png',
+    },
+    meta: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      mobileApp: true,
+      name: 'NoteApp',
+      author: 'Wilson Gouanet<wilstito@gmail.com>',
+      theme_color: '#673ab7',
+      lang: 'en',
+      description: 'A Progressive Web Application for saving note building with VueJS and Workbox',
+    },
+    manifest: {
+      name: 'NoteApp',
+      short_name: 'NoteApp',
+      theme_color: '#673ab7',
+      background_color: '#f0f0f0',
+      lang: 'en',
+      description: 'A Progressive Web Application for save note building with VueJS and Workbox',
+      display: 'standalone',
+      orientation: 'portrait',
+      Scope: '/',
+      start_url: '/',
+    },
+    workbox: {
+      autoRegister: true,
+      enabled: true,
+    },
+  },
 }
