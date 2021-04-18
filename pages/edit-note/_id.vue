@@ -36,15 +36,8 @@
         </template>
         <v-list>
           <v-subheader>COLORS</v-subheader>
-          <v-list-item
-            v-for="(c, index) in colors"
-            :key="index"
-            @click="color = c"
-          >
-            <v-list-item-avatar
-              :class="'lt-' + c"
-              class="mr-2"
-            ></v-list-item-avatar>
+          <v-list-item v-for="(c, index) in colors" :key="index" @click="color = c">
+            <v-list-item-avatar :class="'lt-' + c" class="mr-2"></v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title>
                 {{ c }}
@@ -54,9 +47,9 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-content :class="'lt-' + color">
+    <v-main :class="'lt-' + color">
       <div id="text-editor" autofocus></div>
-    </v-content>
+    </v-main>
     <v-snackbar v-model="alertSave" top right timeout="2000" color="secondary">
       Note Saved
     </v-snackbar>
@@ -93,9 +86,7 @@ export default {
 
     const noteId = this.$route.params.id || 'new'
     if (noteId !== 'new') {
-      this.note = this.$store.getters['notes/noteById'](
-        Number(this.$route.params.id)
-      )
+      this.note = this.$store.getters['notes/noteById'](Number(this.$route.params.id))
       this.editor.setHTML(this.note.content)
       this.color = this.note.color
     }
@@ -136,8 +127,7 @@ export default {
       note.color = this.color
       if (this.note) {
         note.id = this.note.id
-        if (Note.textContent(note).trim() !== '')
-          this.$store.commit('notes/editNote', note)
+        if (Note.textContent(note).trim() !== '') this.$store.commit('notes/editNote', note)
         else this.$store.commit('notes/deleteNote', note.id)
       } else if (Note.textContent(note).trim() !== '') {
         this.$store.commit('notes/saveNote', note)
@@ -153,7 +143,7 @@ export default {
   .v-toolbar {
     flex-grow: 0;
   }
-  .v-content {
+  .v-main {
     background-color: white;
     padding: 72px 16px 16px 16px !important;
 

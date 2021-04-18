@@ -17,10 +17,10 @@
         <v-icon>delete</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div id="text-note" v-html="note.content"></div>
-    </v-content>
+    </v-main>
   </div>
 </template>
 
@@ -49,9 +49,7 @@ export default {
     },
   },
   mounted() {
-    const note = this.$store.getters['notes/noteById'](
-      Number(this.$route.params.id)
-    )
+    const note = this.$store.getters['notes/noteById'](Number(this.$route.params.id))
     if (note) this.note = note
     else this.$router.push('/')
   },
@@ -69,7 +67,7 @@ export default {
   .v-toolbar {
     flex-grow: 0;
   }
-  .v-content {
+  .v-main {
     background-color: $light-grey;
     padding: 72px 16px 0px 16px !important;
   }
