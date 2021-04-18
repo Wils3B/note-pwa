@@ -2,14 +2,11 @@ import Vuex from 'vuex'
 import { state } from '~/store/index'
 import {
   state as notesState,
-  mutations as notesMut,
-  actions as notesAct,
-  getters as notesGet
+  mutations as notesMutations,
+  actions as notesActions,
+  getters as notesGetters,
 } from '~/store/notes'
-import {
-  state as settingsState,
-  mutations as settingsMut
-} from '~/store/settings'
+import { state as settingsState, mutations as settingsMutations } from '~/store/settings'
 
 export default new Vuex.Store({
   state,
@@ -17,14 +14,14 @@ export default new Vuex.Store({
     settings: {
       namespaced: true,
       state: settingsState,
-      mutations: settingsMut
+      mutations: settingsMutations,
     },
     notes: {
       namespaced: true,
       state: notesState,
-      mutations: notesMut,
-      actions: notesAct,
-      getters: notesGet
-    }
-  }
+      mutations: notesMutations,
+      actions: notesActions,
+      getters: notesGetters,
+    },
+  },
 })

@@ -7,10 +7,10 @@ import DetailsPage from '../pages/note-detail/_id.vue'
 
 export default new VueRouter({
   routes: [
-    { path: '/', component: HomePage },
-    { path: '/search', component: SearchPage },
-    { path: '/settings', component: SettingsPage },
-    { path: '/edit-note/:id', component: EditPage },
-    { path: '/note_detail/:id', DetailsPage }
-  ]
+    { path: '/', name: 'index', component: HomePage },
+    { path: '/search', name: 'search', component: SearchPage },
+    { path: '/settings', name: 'settings', component: SettingsPage },
+    { path: '/edit-note/:id', name: 'edit-note-id', component: EditPage },
+    { path: '/note-detail/:id', name: 'note-detail-id', DetailsPage },
+  ],
 })
