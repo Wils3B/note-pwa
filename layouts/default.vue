@@ -8,7 +8,7 @@
 export default {
   mounted() {
     this.$store.dispatch('notes/fetchAllNotes')
-  }
+  },
 }
 </script>
 

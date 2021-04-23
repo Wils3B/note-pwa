@@ -131,7 +131,7 @@ export default {
         else this.$store.commit('notes/deleteNote', note.id)
       } else if (Note.textContent(note).trim() !== '') {
         this.$store.commit('notes/saveNote', note)
-        this.note = note;
+        this.note = note
       }
       if (back) this.$router.go(-1)
     },

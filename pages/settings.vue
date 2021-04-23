@@ -14,12 +14,7 @@
         label="Default sort type"
         filled
       />
-      <v-select
-        v-model="defaultColor"
-        :items="$store.state.colors"
-        label="Default color"
-        filled
-      />
+      <v-select v-model="defaultColor" :items="$store.state.colors" label="Default color" filled />
       <v-select
         v-model="appFont"
         :items="$store.state.settings.groups.fonts"
