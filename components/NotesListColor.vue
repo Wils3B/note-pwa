@@ -6,10 +6,7 @@
           {{ el.color }} ( {{ el.notes.length }} )
         </v-expansion-panel-header>
         <v-expansion-panel-content color="brown">
-          <app-note-list
-            :notes="el.notes"
-            :sizes="{ cols: 12, sm: 6, md: 4, lg: 3, xl: 2 }"
-          />
+          <app-note-list :notes="el.notes" :sizes="{ cols: 12, sm: 6, md: 4, lg: 3, xl: 2 }" />
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -22,13 +19,13 @@ import AppNoteList from '~/components/NotesList.vue'
 export default {
   name: 'NoteListColor',
   components: {
-    AppNoteList
+    AppNoteList,
   },
   props: {
     notes: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     sorted() {
@@ -38,14 +35,14 @@ export default {
         .map((color) => {
           return {
             color,
-            notes: this.notes.filter((note) => note.color === color)
+            notes: this.notes.filter((note) => note.color === color),
           }
         })
         .filter((el) => el.notes.length !== 0)
         .sort((a, b) => b.notes.length - a.notes.length)
       return values
-    }
-  }
+    },
+  },
 }
 </script>
 
