@@ -1,9 +1,5 @@
 <template>
-  <v-card
-    :class="'lt-' + note.color"
-    :to="`/note-detail/${note.id}`"
-    class="note-card"
-  >
+  <v-card :class="'lt-' + note.color" :to="`/note-detail/${note.id}`" class="note-card">
     <v-img v-if="firstImage" :src="firstImage" height="100px"></v-img>
     <v-card-text class="main-text">
       <p v-text="noteText" />
@@ -26,18 +22,16 @@ export default {
   props: {
     note: {
       type: Object,
-      default: () => new Note('Welcome to Note PWA')
-    }
+      default: () => {},
+    },
   },
   computed: {
     noteText() {
       if (!this.note.id || !this.note.content) return ''
       let str = Note.textContent(this.note)
       str = str[0].toUpperCase() + str.slice(1)
-      if (Note.hasImage(this.note) && str.length > 22)
-        return `${str.slice(0, 18)} ...`
-      else if (!Note.hasImage(this.note) && str.length > 95)
-        return `${str.slice(0, 92)} ...`
+      if (Note.hasImage(this.note) && str.length > 22) return `${str.slice(0, 18)} ...`
+      else if (!Note.hasImage(this.note) && str.length > 95) return `${str.slice(0, 92)} ...`
       return str
     },
     modifiedDate() {
@@ -55,8 +49,8 @@ export default {
     firstImage() {
       if (Note.hasImage(this.note)) return Note.getFirstImage(this.note)
       return undefined
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -12,12 +12,12 @@ import AppNoteCard from '~/components/NoteCard.vue'
 export default {
   name: 'NoteList',
   components: {
-    AppNoteCard
+    AppNoteCard,
   },
   props: {
     notes: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     sizes: {
       type: Object,
@@ -25,10 +25,10 @@ export default {
         cols: 6,
         sm: 4,
         md: 3,
-        lg: 2
-      })
-    }
-  }
+        lg: 2,
+      }),
+    },
+  },
 }
 </script>
 
