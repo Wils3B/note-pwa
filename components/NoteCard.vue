@@ -21,8 +21,8 @@ export default {
   name: 'NoteCard',
   props: {
     note: {
-      type: Object,
-      default: () => {},
+      type: Note,
+      required: true,
     },
   },
   computed: {
