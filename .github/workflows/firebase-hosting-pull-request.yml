@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn
+      - run: ls && cat package.json
       - run: yarn test
   build_and_preview:
     needs: tests
