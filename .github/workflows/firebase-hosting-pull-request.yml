@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Node JS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - run: yarn
       - run: ls && cat package.json
       - run: yarn test
