@@ -42,15 +42,4 @@ describe('Note Card', () => {
     expect(wrapper.find('.main-text').text()).toBe('Note 1583267092854')
     expect(wrapper.find('.footer-text').text()).toBe('2020-03-03')
   })
-
-  test('it should have a default display', () => {
-    const localWrapper = mount(NoteCard, {
-      localVue,
-      router,
-      store,
-    })
-    expect(localWrapper.find('.v-image').exists()).toBe(false)
-    expect(localWrapper.find('.main-text').text()).toBe('Welcome to Note PWA')
-    expect(localWrapper.find('.footer-text').text()).toBe(new Date().toTimeString().slice(0, 5))
-  })
 })
