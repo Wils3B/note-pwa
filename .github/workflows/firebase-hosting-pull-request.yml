@@ -15,7 +15,7 @@ jobs:
       - run: node --version
       - run: yarn
       - run: ls && cat package.json
-      - run: yarn test
+      - run: yarn test --passWithNoTests
   build_and_preview:
     needs: tests
     runs-on: ubuntu-latest
