@@ -14,7 +14,6 @@
         type="search"
         placeholder="Search here"
         clear-icon="clear"
-        @change="onChange"
         @input="onInput"
       />
     </v-app-bar>
@@ -69,9 +68,6 @@ export default {
     },
   },
   methods: {
-    onChange(event) {
-      this.text = event
-    },
     onInput(event) {
       this.results = []
       if (event === '') return

@@ -49,7 +49,6 @@
     <v-main>
       <app-note-list v-if="sortType === 'date'" :notes="notes" />
       <app-note-list-color v-else :notes="notes" />
-
       <app-plus-btn />
     </v-main>
   </div>

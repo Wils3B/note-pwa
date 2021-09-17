@@ -20,9 +20,7 @@ export const mutations = {
     DB.deleteNotes(id)
   },
   editNote(currentState, note) {
-    const index = currentState.notes.indexOf(
-      getters.noteById(currentState)(note.id)
-    )
+    const index = currentState.notes.indexOf(getters.noteById(currentState)(note.id))
     const currentNote = currentState.notes[index]
     currentNote.color = note.color
     Note.setContent(currentNote, note.content)

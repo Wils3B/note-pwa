@@ -22,11 +22,12 @@ export default {
   props: {
     note: {
       type: Object,
-      default: () => {},
+      required: true,
     },
   },
   computed: {
     noteText() {
+      if (!this.note.id || !this.note.content) return ''
       let str = Note.textContent(this.note)
       str = str[0].toUpperCase() + str.slice(1)
       if (Note.hasImage(this.note) && str.length > 22) return `${str.slice(0, 18)} ...`

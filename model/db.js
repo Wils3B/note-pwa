@@ -45,7 +45,7 @@ export class DB {
     return {
       passed,
       failed: notes.length - passed,
-      isFailed: passed === 0
+      isFailed: passed === 0,
     }
   }
 
@@ -65,7 +65,7 @@ export class DB {
     return {
       passed,
       failed: notes.length - passed,
-      isFailed: passed === 0
+      isFailed: passed === 0,
     }
   }
 
@@ -99,13 +99,13 @@ export class DB {
     request.onsuccess = () => {
       ok({
         isError: false,
-        data: request.result
+        data: request.result,
       })
     }
     request.onerror = (event) => {
       ok({
         isError: true,
-        error: event
+        error: event,
       })
     }
 
@@ -128,7 +128,7 @@ export class DB {
     return {
       passed,
       failed: ids.length - passed,
-      isFailed: passed === 0
+      isFailed: passed === 0,
     }
   }
 

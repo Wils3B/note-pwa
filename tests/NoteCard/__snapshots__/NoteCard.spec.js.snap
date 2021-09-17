@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note Card Have a correct render 1`] = `
+"<a href=\\"#/note-detail/1583267092854\\" class=\\"note-card v-card v-card--link v-sheet theme--light lt-white\\" tabindex=\\"0\\">
+  <div class=\\"v-image v-responsive theme--light\\" style=\\"height: 100px;\\">
+    <transition-stub name=\\"fade-transition\\" mode=\\"in-out\\">
+      <div class=\\"v-image__image v-image__image--preload v-image__image--cover\\" style=\\"background-position: center center;\\"></div>
+    </transition-stub>
+    <div class=\\"v-responsive__content\\"></div>
+  </div>
+  <div class=\\"v-card__text main-text\\">
+    <p>Note 1583267092854 </p>
+  </div>
+  <div class=\\"spacer\\"></div>
+  <div class=\\"v-card__text footer-text\\"><span>
+      2020-03-03
+    </span>
+    <!---->
+  </div>
+</a>"
+`;
