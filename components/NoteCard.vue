@@ -21,7 +21,7 @@ export default {
   name: 'NoteCard',
   props: {
     note: {
-      type: Note,
+      type: Object,
       required: true,
     },
   },

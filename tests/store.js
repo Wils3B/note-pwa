@@ -1,4 +1,4 @@
-import Vuex from 'vuex'
+import { Store } from 'vuex'
 import { state } from '~/store/index'
 import {
   state as notesState,
@@ -8,7 +8,7 @@ import {
 } from '~/store/notes'
 import { state as settingsState, mutations as settingsMutations } from '~/store/settings'
 
-export default new Vuex.Store({
+export default new Store({
   state,
   modules: {
     settings: {

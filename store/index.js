@@ -1,5 +1,5 @@
 export const state = () => {
   return {
-    colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown']
+    colors: ['white', 'yellow', 'purple', 'green', 'red', 'blue', 'brown'],
   }
 }
