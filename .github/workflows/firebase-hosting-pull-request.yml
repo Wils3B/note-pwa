@@ -41,7 +41,7 @@ jobs:
           FIREBASE_CLI_PREVIEWS: hostingchannels
 
   finish:
-    needs: test
+    needs: tests
     runs-on: ubuntu-latest
     steps:
     - name: Coveralls Finished
