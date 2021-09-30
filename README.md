@@ -1,19 +1,20 @@
-<p style="text-align: center;">
-  <pre>
-  ███▄▄▄▄    ▄██████▄      ███        ▄████████         ▄███████▄  ▄█     █▄     ▄████████
-  ███▀▀▀██▄ ███    ███ ▀█████████▄   ███    ███        ███    ███ ███     ███   ███    ███
-  ███   ███ ███    ███    ▀███▀▀██   ███    █▀         ███    ███ ███     ███   ███    ███
-  ███   ███ ███    ███     ███   ▀  ▄███▄▄▄            ███    ███ ███     ███   ███    ███
-  ███   ███ ███    ███     ███     ▀▀███▀▀▀          ▀█████████▀  ███     ███ ▀███████████
-  ███   ███ ███    ███     ███       ███    █▄         ███        ███     ███   ███    ███
-  ███   ███ ███    ███     ███       ███    ███        ███        ███ ▄█▄ ███   ███    ███
-  ▀█   █▀   ▀██████▀     ▄████▀     ██████████       ▄████▀       ▀███▀███▀    ███    █▀
-  </pre>
-  Note progressive web application with vue.js
-</p>
+<pre>
+███▄▄▄▄    ▄██████▄      ███        ▄████████         ▄███████▄  ▄█     █▄     ▄████████
+███▀▀▀██▄ ███    ███ ▀█████████▄   ███    ███        ███    ███ ███     ███   ███    ███
+███   ███ ███    ███    ▀███▀▀██   ███    █▀         ███    ███ ███     ███   ███    ███
+███   ███ ███    ███     ███   ▀  ▄███▄▄▄            ███    ███ ███     ███   ███    ███
+███   ███ ███    ███     ███     ▀▀███▀▀▀          ▀█████████▀  ███     ███ ▀███████████
+███   ███ ███    ███     ███       ███    █▄         ███        ███     ███   ███    ███
+███   ███ ███    ███     ███       ███    ███        ███        ███ ▄█▄ ███   ███    ███
+▀█   █▀   ▀██████▀     ▄████▀     ██████████       ▄████▀       ▀███▀███▀    ███    █▀
+</pre>
+Note progressive web application with vue.js
 
-<p style="text-align: center">
+<p align="center">
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank"><img src="https://img.shields.io/static/v1?label=Licence&message=GPL-3.0&color=blue" /></a>
+  [![Build](https://github.com/Wils3B/note-pwa/actions/workflows/firebase-hosting-merge.yml/badge.svg)]
+  [![Build Status][ci-image]][ci-url]
+  [![Coverage Status][coveralls-image]][coveralls-url]
 </p>
 
 ## Web App Build Setup
