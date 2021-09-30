@@ -7,9 +7,23 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn
-      - run: yarn test
+      - name: Clone repository and Intall modules
+        uses: actions/checkout@v2
+        run: yarn
+
+      - name: Run lint
+        run: yarn lint
+
+      - name: Run coverage tests
+        run: yarn test:ci
+
+      - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        flag-name: ${{matrix.os}}-node-${{ matrix.node }}
+        parallel: true
+
   build_and_preview:
     needs: tests
     runs-on: ubuntu-latest
@@ -23,3 +37,13 @@ jobs:
           projectId: note-pwa-f3fb8
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
