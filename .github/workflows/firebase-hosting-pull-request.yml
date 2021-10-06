@@ -22,8 +22,8 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: ${{matrix.os}}-node-${{ matrix.node }}
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          flag-name: Node14
           parallel: true
 
   build_and_preview:
@@ -47,5 +47,5 @@ jobs:
     - name: Coveralls Finished
       uses: coverallsapp/github-action@master
       with:
-        github-token: ${{ secrets.github_token }}
+        github-token: '${{ secrets.github_token }}'
         parallel-finished: true

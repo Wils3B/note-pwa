@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn
-      - run: yarn test
+      - run: yarn test:ci
+
   build_and_deploy:
     needs: tests
     runs-on: ubuntu-latest
